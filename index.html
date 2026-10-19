@@ -122,8 +122,7 @@
       width: 100%;
       margin: 0;
       padding: 0;
-      overflow-y: auto !important;
-      overflow-x: hidden;
+      overflow-x: clip;
       background-color: #f8fafc;
       color: #1e293b;
       font-family: 'Plus Jakarta Sans', sans-serif;
@@ -151,29 +150,20 @@
 <header class="sticky top-0 left-0 right-0 z-50 bg-primary shadow-md">
 <div class="h-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
 <a class="flex items-center gap-3" href="#">
-<img alt="WhatsApp Business Academy Logo" class="h-10 w-10 object-contain rounded-lg bg-white/10 p-1" src="https://lh3.googleusercontent.com/aida/AEtjO1WaDjRe5P6LA2ALchWa2kDhSvGjgkrHDhyWgaQ6CmjBjn15FG_rGruAxq9RrzEfEtC909QvcKUw2fOZxts8BKp5JmXI6eONJc2VdLTEfua3KbPSiT0S7om37IIyGAXEMAZ9caRlTxueX_QLwdL9FiZsc1dU-BeGD8rwXsRI-n7LkLHbEcg9Y5jIdtgvdU2mSJEo8D0YNMDFHahtsBUQkv16wxDk2uHljvc0KcVglTu9ivoGqEXugevwcg">
+<img alt="WhatsApp Business Academy Logo" class="h-11 w-11 object-contain" src="img/logo.png">
 <div class="flex flex-col">
 <span class="font-title-md text-[15px] sm:text-title-md text-on-primary font-bold tracking-tight leading-tight">WhatsApp Business Academy</span>
-<span class="font-label-sm text-label-sm text-on-primary-container tracking-wider uppercase font-semibold">Capacitación Oficial</span>
 </div>
 </a>
-<nav class="hidden md:flex items-center gap-2">
+<nav class="hidden md:flex items-center gap-2 ml-auto">
 <a aria-current="page" class="transition-colors bg-primary-container text-on-primary font-semibold rounded-full px-4 py-2 text-sm shadow-inner" href="#inicio">Inicio</a>
 <a class="text-sm font-semibold text-primary-fixed-dim hover:text-white px-4 py-2 rounded-full transition-colors" href="#modalidades">Capacitaciones</a>
 <a class="text-sm font-semibold text-primary-fixed-dim hover:text-white px-4 py-2 rounded-full transition-colors" href="#testimonios">Testimonios</a>
 </nav>
-<div class="flex items-center gap-4">
-<div class="hidden sm:flex items-center gap-1.5 bg-tertiary-container px-3.5 py-1.5 rounded-full border border-tertiary-fixed-dim/30">
-<span class="material-symbols-outlined text-secondary-fixed text-[18px]">verified</span>
-<span class="font-label-sm text-xs text-on-tertiary font-bold uppercase tracking-wide">Pro Partner</span>
-</div>
+<div class="flex items-center gap-4 md:hidden">
 <button class="md:hidden w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center" id="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
 <span class="material-symbols-outlined" id="menu-toggle-icon">menu</span>
 </button>
-<div class="relative hidden sm:flex items-center">
-<img alt="Atención al Cliente" class="w-10 h-10 rounded-full object-cover ring-2 ring-secondary-fixed" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASjiK2qwUQ0rHyIcx0YTVkLS8O8915nUi0T9a2Y_ICS8qdh_j5lakeabQWWJEsupPgnpY8RtivVvGFU1dL3Sodqm3A7_vUJOZTOSFCMc3KD9yaTNUnqJTu-3DuUNrN6UsBgWHgV8kVvOmm09VTH1s69FJFA7DVnU2nX8COzUru7hFvubKp3CZhXqsFTrRz44LuYbCdunj6x2T2MMVDFA9KJP2IMTw0AdtKCqNLfSuOSho8rlgi-A2c">
-<span class="absolute bottom-0 right-0 w-3 h-3 bg-secondary-container rounded-full ring-2 ring-primary"></span>
-</div>
 </div>
 </div>
 <!-- Mobile menu -->
@@ -186,25 +176,21 @@
 <!-- Main Content -->
 <main class="w-full flex-grow bg-surface" id="inicio">
 <!-- Hero Section -->
-<section class="relative w-full overflow-hidden bg-surface-container-lowest py-16 lg:py-24 border-b border-surface-container">
+<section class="relative w-full overflow-hidden bg-surface-container-lowest py-10 lg:py-6 lg:min-h-[calc(100vh-5rem)] lg:flex lg:items-center border-b border-surface-container">
 <!-- Ambient WhatsApp Pattern SVGs -->
 <div class="absolute inset-0 pointer-events-none opacity-20 select-none bg-repeat bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida/AEtjO1U5p883AwIhx9ho-1vmJP3SQQEQtbt1mfSH2W_h8e9pj5jZGXd-LwK7g9klkqCF1IhgQw4XFlrid4y9h-CWkib3LNIPpk68hZLU33NblritPLMFFAofBmurmo45LB4wL-xMYAeyvbMYUryEsy9sQm6G0zJJYGxJhxDq6WG6MTBUDZB5wxe6eRM4RbhFZ0l00IqOy-NdsK9XPvnFaLQFDFlYocEJXTec6YLPYloVSTZgXi3sbepI8c9vI6-p5Qy-EC5lz1A0GaWvsw'); background-size: 420px auto;"></div>
 <!-- Soft ambient radial glows -->
 <div class="absolute -top-24 -left-20 w-96 h-96 rounded-full bg-secondary-container/30 blur-3xl pointer-events-none"></div>
 <div class="absolute top-1/2 -right-24 w-96 h-96 rounded-full bg-primary-fixed/40 blur-3xl pointer-events-none"></div>
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+<div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
 <!-- Hero Left: Typography & CTAs -->
 <div class="lg:col-span-6 flex flex-col items-start">
-<div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-surface-container-low text-primary mb-6 shadow-sm border border-outline-variant/30">
-<span class="material-symbols-outlined text-secondary text-[18px]">verified</span>
-<span class="font-label-sm text-label-sm tracking-wide text-primary uppercase font-bold">Programa Oficial de Capacitación</span>
-</div>
 <h1 class="font-display-lg text-3xl sm:text-4xl lg:text-5xl text-on-surface font-extrabold tracking-tight leading-[1.15] mb-6">
               Domina <span class="text-primary underline decoration-secondary-fixed-dim decoration-4 underline-offset-8">WhatsApp Business</span> y potencia tus ventas
             </h1>
 <p class="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-xl">
-              Elige tu método de capacitación favorito y domina herramientas clave: perfil comercial, catálogo digital, respuestas rápidas, etiquetas de segmentación y automatizaciones inteligentes.
+              Elige tu método de capacitación favorito: <span class="font-bold text-primary">Guía Paso a Paso, Podcast o Video</span> y domina herramientas clave: perfil comercial, catálogo digital, respuestas rápidas, etiquetas y mensajes automatizados de bienvenida y ausencia.
             </p>
 <!-- Primary & Secondary CTA Buttons -->
 <div class="flex flex-wrap items-center gap-4 w-full sm:w-auto mb-10">
@@ -246,79 +232,33 @@
 </div>
 </div>
 </div>
-<!-- Hero Right: Orbit Visual Representation -->
-<div class="lg:col-span-6 flex justify-center items-center relative py-6">
-<div class="relative w-[300px] h-[300px] sm:w-[420px] sm:h-[420px] lg:w-[480px] lg:h-[480px] flex items-center justify-center">
-<!-- Concentric orbital guide rings -->
-<div class="absolute inset-0 rounded-full border-2 border-dashed border-primary-fixed-dim/60 animate-[spin_60s_linear_infinite]"></div>
-<div class="absolute inset-8 rounded-full border border-surface-container-high"></div>
-<!-- Central Hero Avatar Circle with Glow -->
-<div class="relative w-48 h-48 sm:w-64 sm:h-64 rounded-full overflow-hidden shadow-2xl p-1 bg-gradient-to-tr from-primary to-secondary-fixed z-10">
-<img alt="Emprendedora utilizando WhatsApp Web en su laptop para ventas" class="w-full h-full object-cover rounded-full bg-surface-container" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-UVxaYqwg2M6tRUHyjn40qy2hc833DWpcl7SQy7-4eT9PZ4X_AdAvc8kwxUV3R_bLoobFg7u4oMm4cddE3e45mUNHUK7I8Qs2OM1j1ZVfVLr9COdIMyMrbGi1GqvWBYwM8RLS95xrC0hpDr7uiDZbACRz15CnWueImN66ohKBOyFzARThQH01jXy1PdTotC4XDuWo8EPff4tx_TOQ7jobVuUwyLzoyMCaTSkGdKl37urctbmqu_gF">
-<div class="absolute bottom-3 inset-x-3 sm:inset-x-4 bg-primary/90 backdrop-blur-md rounded-full py-1.5 px-3 flex items-center justify-center gap-2 shadow-lg">
-<span class="w-2.5 h-2.5 rounded-full bg-secondary-fixed animate-ping"></span>
-<span class="font-label-sm text-[11px] sm:text-xs text-on-primary font-bold whitespace-nowrap">¡Aprende en vivo hoy!</span>
+<!-- Hero Right: foto + mensaje informativo (estático, no interactivo) -->
+<div class="lg:col-span-6 flex justify-center items-center relative cursor-default">
+<div class="relative w-full max-w-[480px] mx-auto mt-8 lg:mt-0 lg:h-[540px]">
+<!-- Foto -->
+<div class="relative ml-auto w-[88%] sm:w-[78%] lg:absolute lg:right-0 lg:top-0 lg:w-[360px] h-64 sm:h-96 lg:h-[460px] rounded-[2rem] overflow-hidden shadow-2xl ring-1 ring-black/5">
+<img alt="Emprendedora utilizando WhatsApp Web en su laptop para ventas" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-UVxaYqwg2M6tRUHyjn40qy2hc833DWpcl7SQy7-4eT9PZ4X_AdAvc8kwxUV3R_bLoobFg7u4oMm4cddE3e45mUNHUK7I8Qs2OM1j1ZVfVLr9COdIMyMrbGi1GqvWBYwM8RLS95xrC0hpDr7uiDZbACRz15CnWueImN66ohKBOyFzARThQH01jXy1PdTotC4XDuWo8EPff4tx_TOQ7jobVuUwyLzoyMCaTSkGdKl37urctbmqu_gF">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/25 via-transparent to-transparent"></div>
 </div>
+<!-- Mensaje enviado -->
+<div class="absolute top-4 left-0 sm:left-4 lg:top-10 lg:left-0 bg-[#d9fdd3] text-on-surface text-xs sm:text-sm font-semibold px-3.5 py-2 rounded-2xl rounded-tr-sm shadow-lg">
+¡Quiero potenciar mis ventas! <span class="text-[#53bdeb] font-bold">✓✓</span>
 </div>
-<!-- Orbiting Chip 1: Catálogo Digital (Top-Left) -->
-<div class="absolute -top-2 left-2 sm:left-6 bg-surface-container-lowest shadow-lg rounded-full py-1.5 px-2.5 sm:py-2 sm:px-3.5 flex items-center gap-2 sm:gap-2.5 transform hover:scale-105 transition-all duration-300 z-20 border border-surface-container group">
-<div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-primary-fixed flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
-<span class="material-symbols-outlined text-[18px]">storefront</span>
+<!-- Mensaje recibido: lo que vas a aprender -->
+<div class="relative -mt-28 sm:-mt-36 lg:mt-0 lg:absolute lg:left-0 lg:bottom-0 w-[86%] sm:w-[330px] bg-surface-container-lowest rounded-3xl rounded-tl-md shadow-2xl border border-surface-container p-4 sm:p-5">
+<div class="flex items-center gap-2 mb-2">
+<img alt="" class="w-7 h-7 rounded-full" src="img/logo.png">
+<span class="text-xs font-bold text-primary">WhatsApp Business Academy</span>
 </div>
-<div class="flex flex-col text-left">
-<span class="font-label-sm text-xs font-bold text-on-surface">Catálogo Digital</span>
-<span class="hidden sm:block text-[11px] text-on-surface-variant leading-none">Productos &amp; Links</span>
-</div>
-</div>
-<!-- Orbiting Chip 2: Respuestas Rápidas (Top-Right) -->
-<div class="absolute top-12 -right-3 sm:top-2 sm:-right-2 md:right-2 bg-surface-container-lowest shadow-lg rounded-full py-1.5 px-2.5 sm:py-2 sm:px-3.5 flex items-center gap-2 sm:gap-2.5 transform hover:scale-105 transition-all duration-300 z-20 border border-surface-container group">
-<div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-secondary-container flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-colors">
-<span class="material-symbols-outlined text-[18px]">bolt</span>
-</div>
-<div class="flex flex-col text-left">
-<span class="font-label-sm text-xs font-bold text-on-surface">Respuestas Rápidas</span>
-<span class="hidden sm:block text-[11px] text-on-surface-variant leading-none">Atajos /gracias</span>
-</div>
-</div>
-<!-- Orbiting Chip 3: Etiquetas de Clientes (Middle-Right) -->
-<div class="absolute top-1/2 -right-4 sm:-right-6 transform -translate-y-1/2 bg-surface-container-lowest shadow-lg rounded-full py-1.5 px-2.5 sm:py-2 sm:px-3.5 flex items-center gap-2 sm:gap-2.5 hover:scale-105 transition-all duration-300 z-20 border border-surface-container group">
-<div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
-<span class="material-symbols-outlined text-[18px]">sell</span>
-</div>
-<div class="flex flex-col text-left">
-<span class="font-label-sm text-xs font-bold text-on-surface">Etiquetas</span>
-<span class="hidden sm:block text-[11px] text-on-surface-variant leading-none">Segmenta pedidos</span>
-</div>
-</div>
-<!-- Orbiting Chip 4: Automatizaciones (Bottom-Right) -->
-<div class="absolute -bottom-2 right-4 sm:right-8 bg-surface-container-lowest shadow-lg rounded-full py-1.5 px-2.5 sm:py-2 sm:px-3.5 flex items-center gap-2 sm:gap-2.5 hover:scale-105 transition-all duration-300 z-20 border border-surface-container group">
-<div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-tertiary-fixed flex items-center justify-center text-tertiary group-hover:bg-tertiary group-hover:text-on-tertiary transition-colors">
-<span class="material-symbols-outlined text-[18px]">smart_toy</span>
-</div>
-<div class="flex flex-col text-left">
-<span class="font-label-sm text-xs font-bold text-on-surface">Automatizaciones</span>
-<span class="hidden sm:block text-[11px] text-on-surface-variant leading-none">Bienvenida &amp; Ausencia</span>
-</div>
-</div>
-<!-- Orbiting Chip 5: Métricas y Estadísticas (Bottom-Left) -->
-<div class="absolute bottom-2 -left-2 sm:left-4 bg-surface-container-lowest shadow-lg rounded-full py-1.5 px-2.5 sm:py-2 sm:px-3.5 flex items-center gap-2 sm:gap-2.5 hover:scale-105 transition-all duration-300 z-20 border border-surface-container group">
-<div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
-<span class="material-symbols-outlined text-[18px]">insights</span>
-</div>
-<div class="flex flex-col text-left">
-<span class="font-label-sm text-xs font-bold text-on-surface">Métricas</span>
-<span class="hidden sm:block text-[11px] text-on-surface-variant leading-none">Tasa de apertura</span>
-</div>
-</div>
-<!-- Orbiting Chip 6: Certificación Oficial (Middle-Left) -->
-<div class="absolute top-1/2 -left-6 sm:-left-8 transform -translate-y-1/2 bg-surface-container-lowest shadow-lg rounded-full py-1.5 px-2.5 sm:py-2 sm:px-3.5 flex items-center gap-2 sm:gap-2.5 hover:scale-105 transition-all duration-300 z-20 border border-surface-container group">
-<div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed group-hover:bg-secondary-fixed-dim transition-colors">
-<span class="material-symbols-outlined text-[18px]">school</span>
-</div>
-<div class="flex flex-col text-left">
-<span class="font-label-sm text-xs font-bold text-on-surface">Certificación</span>
-<span class="hidden sm:block text-[11px] text-on-surface-variant leading-none">Meta Business</span>
-</div>
+<p class="text-sm font-semibold text-on-surface mb-3">¡Hola! 👋 Acá vas a aprender a:</p>
+<ul class="flex flex-col gap-2 text-[13px] sm:text-sm text-on-surface-variant">
+<li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-[18px] text-primary shrink-0">storefront</span><span>Configurar tu <b class="text-on-surface">perfil comercial</b></span></li>
+<li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-[18px] text-primary shrink-0">shopping_bag</span><span>Cargar tu <b class="text-on-surface">catálogo digital</b></span></li>
+<li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-[18px] text-primary shrink-0">bolt</span><span>Usar <b class="text-on-surface">respuestas rápidas</b></span></li>
+<li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-[18px] text-primary shrink-0">sell</span><span>Organizar chats con <b class="text-on-surface">etiquetas</b></span></li>
+<li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-[18px] text-primary shrink-0">smart_toy</span><span>Automatizar <b class="text-on-surface">bienvenida y ausencia</b></span></li>
+</ul>
+<span class="block text-right text-[10px] text-outline mt-2">10:30</span>
 </div>
 </div>
 </div>
@@ -340,14 +280,16 @@
 <p class="font-body-md text-body-md text-on-surface-variant mt-2 max-w-2xl">
               Aprende paso a paso las herramientas esenciales de WhatsApp Business para profesionalizar tu atención y aumentar tus ventas.
             </p>
+<div class="mt-5 inline-flex items-start gap-3 p-4 rounded-2xl bg-surface-container-lowest border border-surface-container shadow-sm max-w-2xl">
+<span class="material-symbols-outlined text-secondary text-[22px] shrink-0">lightbulb</span>
+<p class="font-body-sm text-sm text-on-surface">
+<span class="font-bold">¿Es tu primera vez con WhatsApp Business?</span> Empezá por el Módulo 1. <span class="font-bold">¿Ya lo usás?</span> Elegí directamente el módulo que necesites.
+              </p>
 </div>
-<div class="inline-flex p-1.5 rounded-full bg-surface-container-lowest shadow-sm self-start md:self-auto border border-surface-container">
-<span class="px-4 py-1.5 rounded-full bg-primary text-on-primary font-label-sm text-xs font-bold">100% Gratuito</span>
-<span class="px-4 py-1.5 rounded-full text-on-surface-variant font-label-sm text-xs font-semibold">Acreditación Oficial</span>
 </div></div>
 <!-- 3 Modality Cards -->
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8"><!-- CARD 1: Configurar el Perfil Comercial -->
-<div class="bg-surface-container-lowest rounded-3xl p-6 lg:p-8 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between border border-surface-container group">
+<a class="bg-surface-container-lowest rounded-3xl p-6 lg:p-8 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between border border-surface-container group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary" href="modulo-1.html">
 <div>
 <div class="flex items-center justify-between mb-6">
 <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-xs font-bold">
@@ -391,28 +333,32 @@
 <ul class="space-y-3 mb-8">
 <li class="flex items-start gap-2.5 font-body-sm text-body-sm text-on-surface">
 <span class="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-0.5">check_circle</span>
-<span class="">Identidad de marca y horario comercial</span>
+<span class="">Descargá la App</span>
 </li>
 <li class="flex items-start gap-2.5 font-body-sm text-body-sm text-on-surface">
 <span class="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-0.5">check_circle</span>
-<span class="">Ubicación en mapa y enlaces web</span>
+<span class="">Confirmá tu número</span>
 </li>
 <li class="flex items-start gap-2.5 font-body-sm text-body-sm text-on-surface">
 <span class="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-0.5">check_circle</span>
-<span class="">Mensaje de presentación verificado</span>
+<span class="">Configurá tu perfil</span>
+</li>
+<li class="flex items-start gap-2.5 font-body-sm text-body-sm text-on-surface">
+<span class="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-0.5">check_circle</span>
+<span class="">¡Listo! Mirá el resultado</span>
 </li>
 </ul>
 </div>
 <div class="pt-4 border-t border-surface-container">
-<a class="w-full py-3.5 px-6 rounded-full bg-primary text-on-primary font-label-lg text-sm font-bold flex items-center justify-center gap-2 hover:bg-primary-container transition-colors shadow-sm" href="modulo-1.html">
+<span class="w-full py-3.5 px-6 rounded-full bg-primary text-on-primary font-label-lg text-sm font-bold flex items-center justify-center gap-2 group-hover:bg-primary-container transition-colors shadow-sm">
 <span class="material-symbols-outlined text-[20px]">play_arrow</span>
 <span>Comenzar Módulo 1</span>
+</span>
+</div>
 </a>
-</div>
-</div>
 
 <!-- CARD 2: Cargar el Catálogo Digital -->
-<div class="bg-surface-container-lowest rounded-3xl p-6 lg:p-8 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between border border-surface-container group">
+<a class="bg-surface-container-lowest rounded-3xl p-6 lg:p-8 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between border border-surface-container group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary" href="modulo-2.html">
 <div>
 <div class="flex items-center justify-between mb-6">
 <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container/40 text-on-secondary-container font-label-sm text-xs font-bold">
@@ -431,9 +377,9 @@
 <p class="font-title-md text-sm font-bold text-on-surface truncate">Pack Promocional</p>
 <p class="font-headline-sm text-sm font-extrabold text-secondary mt-0.5">$15.000</p>
 </div>
-<button class="w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-primary hover:bg-primary-fixed transition-colors shadow-sm" title="Compartir enlace">
+<span class="w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-primary shadow-sm">
 <span class="material-symbols-outlined text-[16px]">share</span>
-</button>
+</span>
 </div>
 <div class="flex items-center justify-between text-[11px] text-on-surface-variant font-label-sm px-1">
 <span class="flex items-center gap-1 text-secondary font-bold">
@@ -451,25 +397,29 @@
 <ul class="space-y-3 mb-8">
 <li class="flex items-start gap-2.5 font-body-sm text-body-sm text-on-surface">
 <span class="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-0.5">check_circle</span>
-<span class="">Creación de colecciones e inventario</span>
+<span class="">Entrá al catálogo</span>
 </li>
 <li class="flex items-start gap-2.5 font-body-sm text-body-sm text-on-surface">
 <span class="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-0.5">check_circle</span>
-<span class="">Enlaces de productos compartibles en 1 clic</span>
+<span class="">Añadí y completá tus artículos</span>
 </li>
 <li class="flex items-start gap-2.5 font-body-sm text-body-sm text-on-surface">
 <span class="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-0.5">check_circle</span>
-<span class="">Carrito de compras integrado en chat</span>
+<span class="">Guardá y esperá la aprobación</span>
+</li>
+<li class="flex items-start gap-2.5 font-body-sm text-body-sm text-on-surface">
+<span class="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-0.5">check_circle</span>
+<span class="">¡Compartí tu catálogo!</span>
 </li>
 </ul>
 </div>
 <div class="pt-4 border-t border-surface-container">
-<button class="w-full py-3.5 px-6 rounded-full bg-surface-container-high text-primary font-label-lg text-sm font-bold flex items-center justify-center gap-2 hover:bg-primary-fixed transition-colors shadow-sm">
-<span class="material-symbols-outlined text-[20px]">menu_book</span>
-<span class="">Ver Guía de Catálogo</span>
-</button>
+<span class="w-full py-3.5 px-6 rounded-full bg-primary text-on-primary font-label-lg text-sm font-bold flex items-center justify-center gap-2 group-hover:bg-primary-container transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[20px]">play_arrow</span>
+<span>Comenzar Módulo 2</span>
+</span>
 </div>
-</div>
+</a>
 
 <!-- CARD 3: Respuestas Automáticas y Etiquetas -->
 <div class="bg-surface-container-lowest rounded-3xl p-6 lg:p-8 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between border border-surface-container group">
@@ -553,14 +503,14 @@
             Tu opinión nos ayuda a crear mejores contenidos y optimizar las herramientas prácticas para toda la comunidad de negocios de habla hispana.
           </p>
 </div>
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
 <!-- Interactive Feedback Form (Left Column) -->
 <div class="lg:col-span-6 bg-surface-container-lowest p-6 sm:p-8 rounded-3xl shadow-sm border border-surface-container">
 <h3 class="font-headline-sm text-xl text-on-surface font-bold mb-2">
               Deja tu calificación
             </h3>
 <p class="font-body-sm text-body-sm text-on-surface-variant mb-6">
-              Valora la claridad, utilidad de las herramientas y calidad de los ejercicios interactivos.
+              Valora la claridad, utilidad de las herramientas y calidad del contenido.
             </p>
 <form class="space-y-6" id="feedback-form" onsubmit="event.preventDefault(); submitFeedback();">
 <!-- Star Rating Widget -->
@@ -593,9 +543,9 @@
                   ¿Qué formato de capacitación realizaste?
                 </label>
 <select class="w-full h-12 px-4 rounded-xl bg-surface-container-low border-0 text-on-surface font-body-md text-sm focus:outline-none focus:ring-2 focus:ring-primary shadow-inner" id="course-type">
-<option value="video">Capacitación en Video (Micro-learning)</option>
-<option value="guia">Guía Interactiva Paso a Paso</option>
-<option value="simulador">Modo Juego &amp; Simulador de Clientes</option>
+<option value="video">Capacitación en Video</option>
+<option value="guia">Guía Paso a Paso</option>
+<option value="podcast">Capacitación en Podcast</option>
 <option value="todos">Realicé los tres formatos</option>
 </select>
 </div>
@@ -609,16 +559,16 @@
 <!-- Business Name and Role input row -->
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 <div>
+<label class="block font-label-md text-sm font-bold text-on-surface mb-1" for="full-name">
+                    Nombre y apellido
+                  </label>
+<input class="w-full h-12 px-4 rounded-xl bg-surface-container-low border-0 text-on-surface font-body-md text-sm focus:outline-none focus:ring-2 focus:ring-primary shadow-inner" id="full-name" placeholder="Ej: Laura Fernández" required="" type="text">
+</div>
+<div>
 <label class="block font-label-md text-sm font-bold text-on-surface mb-1" for="business-name">
                     Nombre de tu negocio
                   </label>
-<input class="w-full h-12 px-4 rounded-xl bg-surface-container-low border-0 text-on-surface font-body-md text-sm focus:outline-none focus:ring-2 focus:ring-primary shadow-inner" id="business-name" placeholder="Ej: Tienda Verde Natural" required="" type="text">
-</div>
-<div>
-<label class="block font-label-md text-sm font-bold text-on-surface mb-1" for="business-city">
-                    Ciudad o País
-                  </label>
-<input class="w-full h-12 px-4 rounded-xl bg-surface-container-low border-0 text-on-surface font-body-md text-sm focus:outline-none focus:ring-2 focus:ring-primary shadow-inner" id="business-city" placeholder="Ej: Bogotá, Colombia" type="text">
+<input class="w-full h-12 px-4 rounded-xl bg-surface-container-low border-0 text-on-surface font-body-md text-sm focus:outline-none focus:ring-2 focus:ring-primary shadow-inner" id="business-name" placeholder="Ej: Tienda Verde Natural" type="text">
 </div>
 </div>
 <!-- Submit Button & Feedback Success Message -->
@@ -635,7 +585,7 @@
 </form>
 </div>
 <!-- Right Column: Real Testimonials from WhatsApp Business Trainees -->
-<div class="lg:col-span-6 space-y-4">
+<div class="lg:col-span-6 flex flex-col gap-4">
 <div class="flex items-center justify-between mb-2">
 <h4 class="font-title-md text-base text-on-surface font-bold">
                 Experiencias recientes de emprendedores
@@ -643,7 +593,7 @@
 <span class="font-label-sm text-xs text-secondary font-bold">Verificados</span>
 </div>
 <!-- Testimonial 1 -->
-<div class="bg-surface-container-lowest p-5 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-surface-container">
+<div class="flex-1 flex flex-col justify-center bg-surface-container-lowest p-5 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-surface-container">
 <div class="flex items-center justify-between mb-3">
 <div class="flex items-center gap-3">
 <div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold font-label-md">
@@ -651,7 +601,7 @@
                   </div>
 <div>
 <p class="font-label-md text-sm font-bold text-on-surface">Mariana Restrepo</p>
-<p class="font-label-sm text-[11px] text-on-surface-variant">Restrepo Joyas • Guía Interactiva</p>
+<p class="font-label-sm text-[11px] text-on-surface-variant">Restrepo Joyas • Guía Paso a Paso</p>
 </div>
 </div>
 <div class="flex text-secondary text-sm">
@@ -663,11 +613,11 @@
 </div>
 </div>
 <p class="font-body-sm text-sm text-on-surface-variant leading-relaxed">
-                "El tutorial para ordenar el catálogo con variantes de precios nos ahorró al menos 2 horas diarias de responder exactamente lo mismo. Las capturas paso a paso no dan lugar a dudas."
+                "Nunca había usado WhatsApp Business y con la guía paso a paso armé el perfil de mi negocio en una tarde: descargué la app, confirmé el número y cargué horarios, dirección y descripción. Las capturas de cada paso no dejan lugar a dudas, y mis clientas ahora ven toda la info de la tienda apenas me escriben."
               </p>
 </div>
 <!-- Testimonial 2 -->
-<div class="bg-surface-container-lowest p-5 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-surface-container">
+<div class="flex-1 flex flex-col justify-center bg-surface-container-lowest p-5 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-surface-container">
 <div class="flex items-center justify-between mb-3">
 <div class="flex items-center gap-3">
 <div class="w-10 h-10 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-bold font-label-md">
@@ -675,7 +625,7 @@
                   </div>
 <div>
 <p class="font-label-md text-sm font-bold text-on-surface">Carlos Andrade</p>
-<p class="font-label-sm text-[11px] text-on-surface-variant">Café de Origen • Modo Simulador</p>
+<p class="font-label-sm text-[11px] text-on-surface-variant">Café de Origen • Capacitación en Podcast</p>
 </div>
 </div>
 <div class="flex text-secondary text-sm">
@@ -687,11 +637,11 @@
 </div>
 </div>
 <p class="font-body-sm text-sm text-on-surface-variant leading-relaxed">
-                "El simulador de clientes con chat ficticio es brillante. Me ayudó a entrenar a mis dos colaboradores nuevos para responder objeciones de envíos sin arriesgar clientes de verdad."
+                "Escuché el podcast mientras hacía el reparto y esa misma noche configuré los mensajes de bienvenida y ausencia. Ahora cada cliente recibe una respuesta al instante, aunque yo esté tostando café o fuera de horario. Ya no pierdo consultas y la gente me escribe con más confianza."
               </p>
 </div>
 <!-- Testimonial 3 -->
-<div class="bg-surface-container-lowest p-5 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-surface-container">
+<div class="flex-1 flex flex-col justify-center bg-surface-container-lowest p-5 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-surface-container">
 <div class="flex items-center justify-between mb-3">
 <div class="flex items-center gap-3">
 <div class="w-10 h-10 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-bold font-label-md">
@@ -699,7 +649,7 @@
                   </div>
 <div>
 <p class="font-label-md text-sm font-bold text-on-surface">Valeria Guzmán</p>
-<p class="font-label-sm text-[11px] text-on-surface-variant">Deco Hogar Studio • Videos Micro-learning</p>
+<p class="font-label-sm text-[11px] text-on-surface-variant">Deco Hogar Studio • Capacitación en Video</p>
 </div>
 </div>
 <div class="flex text-secondary text-sm">
@@ -711,38 +661,9 @@
 </div>
 </div>
 <p class="font-body-sm text-sm text-on-surface-variant leading-relaxed">
-                "Pude ver los videos de 4 minutos mientras preparaba pedidos en el taller. Aprendí a etiquetar clientes por estado de pago y aumentamos las recompras un 35% en el primer mes."
+                "Los videos son cortos y muy claros, los fui mirando entre pedido y pedido. Aprendí a cargar el catálogo, a usar etiquetas para separar pedidos pendientes y pagados, y a crear respuestas rápidas para las preguntas de siempre. Ahora tengo todo mucho más organizado y respondo en la mitad del tiempo."
               </p>
 </div>
-<!-- Quick trust banner -->
-<div class="p-4 rounded-2xl bg-surface-container flex items-center gap-4 border border-outline-variant/30">
-<span class="material-symbols-outlined text-primary text-3xl">verified_user</span>
-<div>
-<p class="font-label-md text-sm font-bold text-on-surface">Garantía de contenido oficial</p>
-<p class="font-body-sm text-xs text-on-surface-variant">Desarrollado bajo estándares y políticas de Meta Platforms &amp; WhatsApp Business.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Bottom CTA: Ready to get certified? -->
-<section class="w-full bg-surface-container-lowest py-16 border-t border-surface-container">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="rounded-3xl bg-surface-container-low p-8 lg:p-12 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left border border-surface-container">
-<div>
-<span class="font-label-sm text-xs text-primary uppercase font-bold tracking-wider">Acreditación Gratuita</span>
-<h3 class="font-headline-lg text-2xl sm:text-3xl text-on-surface font-extrabold mt-1 mb-2">
-              ¿Listo para certificar tu negocio?
-            </h3>
-<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
-              Completa cualquiera de los 3 formatos y recibe tu diploma digital avalado por WhatsApp Business Academy para compartir en redes sociales y en tu sitio web.
-            </p>
-</div>
-<div class="flex flex-wrap items-center justify-center gap-4 shrink-0">
-<a class="px-8 py-3.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-lg text-sm font-bold shadow-md hover:bg-secondary-fixed-dim transition-all" href="#modalidades">
-              Comenzar mi certificación
-            </a>
 </div>
 </div>
 </div>
@@ -751,47 +672,16 @@
 <!-- Footer -->
 <footer class="w-full bg-surface-container-low border-t border-surface-container mt-auto">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+<div class="mb-10 max-w-md">
 <div>
-<div class="flex items-center gap-2.5 mb-4">
-<img alt="WhatsApp Business Academy Logo" class="h-8 w-8 object-contain rounded-md" src="https://lh3.googleusercontent.com/aida/AEtjO1WaDjRe5P6LA2ALchWa2kDhSvGjgkrHDhyWgaQ6CmjBjn15FG_rGruAxq9RrzEfEtC909QvcKUw2fOZxts8BKp5JmXI6eONJc2VdLTEfua3KbPSiT0S7om37IIyGAXEMAZ9caRlTxueX_QLwdL9FiZsc1dU-BeGD8rwXsRI-n7LkLHbEcg9Y5jIdtgvdU2mSJEo8D0YNMDFHahtsBUQkv16wxDk2uHljvc0KcVglTu9ivoGqEXugevwcg">
+<div class="flex items-center gap-2.5">
+<img alt="WhatsApp Business Academy Logo" class="h-8 w-8 object-contain rounded-md" src="img/logo.png">
 <span class="font-headline-sm text-lg text-primary font-bold">Business Academy</span>
 </div>
-<p class="font-body-sm text-sm text-on-surface-variant leading-relaxed">Capacitación oficial y certificación profesional en soluciones conversacionales de Meta y WhatsApp Business.</p>
-</div>
-<div>
-<h4 class="font-label-lg text-sm text-on-surface mb-3 font-bold">Recursos</h4>
-<ul class="space-y-2 text-sm text-on-surface-variant">
-<li class=""><a class="hover:text-primary transition-colors" href="#">Guías de Inicio Rápido</a></li>
-<li class=""><a class="hover:text-primary transition-colors" href="#">Documentación API Cloud</a></li>
-<li class=""><a class="hover:text-primary transition-colors" href="#">Plantillas de Mensajes</a></li>
-<li class=""><a class="hover:text-primary transition-colors" href="#">Casos de Éxito</a></li>
-</ul>
-</div>
-<div>
-<h4 class="font-label-lg text-sm text-on-surface mb-3 font-bold">Certificaciones Meta</h4>
-<ul class="space-y-2 text-sm text-on-surface-variant">
-<li class=""><a class="hover:text-primary transition-colors" href="#">Meta Certified Business Partner</a></li>
-<li class=""><a class="hover:text-primary transition-colors" href="#">WhatsApp Marketing Associate</a></li>
-<li class=""><a class="hover:text-primary transition-colors" href="#">Verificación de Empresas</a></li>
-<li class=""><a class="hover:text-primary transition-colors" href="#">Exámenes Oficiales</a></li>
-</ul>
-</div>
-<div>
-<h4 class="font-label-lg text-sm text-on-surface mb-3 font-bold">Legal y Soporte</h4>
-<ul class="space-y-2 text-sm text-on-surface-variant">
-<li class=""><a class="hover:text-primary transition-colors" href="#">Política de Comercio de WhatsApp</a></li>
-<li class=""><a class="hover:text-primary transition-colors" href="#">Condiciones del Servicio</a></li>
-<li class=""><a class="hover:text-primary transition-colors" href="#">Aviso de Privacidad</a></li>
-<li class=""><a class="hover:text-primary transition-colors" href="#">Centro de Ayuda</a></li>
-</ul>
 </div>
 </div>
 <div class="flex flex-col sm:flex-row items-center justify-between pt-6 border-t border-surface-container gap-4">
 <p class="font-label-md text-xs text-on-surface-variant">© 2024 WhatsApp LLC &amp; Meta Platforms, Inc. Todos los derechos reservados.</p>
-<div class="flex items-center gap-4">
-<span class="font-label-sm text-xs text-on-surface-variant uppercase tracking-wider font-semibold">Programa de Capacitación Oficial</span>
-</div>
 </div>
 </div>
 </footer>
@@ -836,7 +726,7 @@
         setTimeout(() => {
           document.getElementById('feedback-comment').value = '';
           document.getElementById('business-name').value = '';
-          document.getElementById('business-city').value = '';
+          document.getElementById('full-name').value = '';
         }, 500);
       }
     }
