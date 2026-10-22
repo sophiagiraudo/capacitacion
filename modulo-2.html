@@ -130,6 +130,12 @@
     /* Video vertical: portada 16:9 y, al reproducir, el visor se estira para que se lea la pantalla del celular */
     .video-stage { aspect-ratio: 16 / 9; }
     .video-stage.is-playing { aspect-ratio: auto; height: min(85vh, 205vw, 900px); }
+    /* Transcripción del video */
+    .transcript > summary { list-style: none; }
+    .transcript > summary::-webkit-details-marker { display: none; }
+    .transcript[open] .transcript-chevron { transform: rotate(180deg); }
+    .transcript-line.is-current { background: #eaf5fe; }
+    .transcript-line.is-current .transcript-time { background: #00453d; color: #ffffff; }
     /* Actividad evaluativa */
     .quiz-opt { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 14px; border: 2px solid #e5eff8; cursor: pointer; font-size: 15px; font-weight: 500; color: #131d23; transition: border-color .15s, background-color .15s; }
     .quiz-opt:hover { border-color: #8cd4c7; }
@@ -203,9 +209,9 @@
 <a class="inline-flex items-center gap-1.5 rounded-[10px] px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-bold bg-surface-container-lowest border border-surface-container shadow-sm text-on-surface hover:border-primary hover:text-primary transition-colors" href="modulo-1.html">
 <span class="material-symbols-outlined text-[18px] text-primary">arrow_back</span>Módulo 1
 </a>
-<span class="inline-flex items-center gap-1.5 rounded-[10px] px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-bold bg-surface-container-lowest border border-surface-container shadow-sm text-outline cursor-default" title="Próximamente" aria-disabled="true">
-Módulo 3<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-</span>
+<a class="inline-flex items-center gap-1.5 rounded-[10px] px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-bold bg-surface-container-lowest border border-surface-container shadow-sm text-on-surface hover:border-primary hover:text-primary transition-colors" href="modulo-3.html">
+Módulo 3<span class="material-symbols-outlined text-[18px] text-primary">arrow_forward</span>
+</a>
 </nav>
 
 <h2 class="font-headline-lg text-2xl sm:text-3xl text-on-surface font-extrabold tracking-tight mb-4 sm:mb-6">¿Cómo querés capacitarte?</h2>
@@ -313,6 +319,35 @@ Módulo 3<span class="material-symbols-outlined text-[18px]">arrow_forward</span
 <span class="material-symbols-outlined text-[18px] text-primary">smartphone</span>
 <span>Grabación de pantalla · Cargamos un artículo de punta a punta</span>
 </div>
+<details class="transcript group mt-3 mx-1 sm:mx-0 rounded-2xl border border-surface-container bg-surface-container-low/60">
+<summary class="flex items-center gap-2 px-4 py-3 cursor-pointer select-none text-sm font-bold text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px] text-primary">subtitles</span>
+<span class="flex-1">Transcripción del video</span>
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant transcript-chevron transition-transform">expand_more</span>
+</summary>
+<ol class="px-2 sm:px-3 pb-3 space-y-1">
+<li class="transcript-line flex gap-3 rounded-xl p-2 sm:p-3 transition-colors" data-time="0">
+<button class="transcript-time shrink-0 h-7 px-2.5 rounded-full bg-surface-container text-primary text-xs font-bold tabular-nums hover:bg-primary-fixed transition-colors" type="button" aria-label="Ir al minuto 0:00">0:00</button>
+<p class="text-sm text-on-surface leading-relaxed">Entramos a WhatsApp Business, nos dirigimos a la parte de Herramientas, seleccionamos la opción Catálogo y añadimos un nuevo artículo.</p>
+</li>
+<li class="transcript-line flex gap-3 rounded-xl p-2 sm:p-3 transition-colors" data-time="8">
+<button class="transcript-time shrink-0 h-7 px-2.5 rounded-full bg-surface-container text-primary text-xs font-bold tabular-nums hover:bg-primary-fixed transition-colors" type="button" aria-label="Ir al minuto 0:08">0:08</button>
+<p class="text-sm text-on-surface leading-relaxed">Agregamos una foto o video para nuestro producto desde la cámara o la galería, seleccionamos la que más nos guste y tocamos el tilde.</p>
+</li>
+<li class="transcript-line flex gap-3 rounded-xl p-2 sm:p-3 transition-colors" data-time="16">
+<button class="transcript-time shrink-0 h-7 px-2.5 rounded-full bg-surface-container text-primary text-xs font-bold tabular-nums hover:bg-primary-fixed transition-colors" type="button" aria-label="Ir al minuto 0:16">0:16</button>
+<p class="text-sm text-on-surface leading-relaxed">Aquí los datos obligatorios son la foto, el nombre del producto y el país. Pero se pueden completar otros datos, como el precio, la descripción, un link y el código del artículo.</p>
+</li>
+<li class="transcript-line flex gap-3 rounded-xl p-2 sm:p-3 transition-colors" data-time="33">
+<button class="transcript-time shrink-0 h-7 px-2.5 rounded-full bg-surface-container text-primary text-xs font-bold tabular-nums hover:bg-primary-fixed transition-colors" type="button" aria-label="Ir al minuto 0:33">0:33</button>
+<p class="text-sm text-on-surface leading-relaxed">Y listo, ya podemos guardar el producto. Los artículos recién agregados no están visibles para los clientes hasta que WhatsApp los apruebe.</p>
+</li>
+<li class="transcript-line flex gap-3 rounded-xl p-2 sm:p-3 transition-colors" data-time="42">
+<button class="transcript-time shrink-0 h-7 px-2.5 rounded-full bg-surface-container text-primary text-xs font-bold tabular-nums hover:bg-primary-fixed transition-colors" type="button" aria-label="Ir al minuto 0:42">0:42</button>
+<p class="text-sm text-on-surface leading-relaxed">Y por último, desde los tres puntitos se puede editar el producto.</p>
+</li>
+</ol>
+</details>
 </div>
 </div>
 
@@ -732,6 +767,25 @@ Continuar<span class="material-symbols-outlined text-[20px]">arrow_forward</span
       video.focus();
     });
     video.addEventListener('ended', openQuiz);
+
+    // Transcripción: cada minuto lleva el video a ese punto y se resalta el párrafo que se está escuchando
+    const transcriptLines = Array.from(document.querySelectorAll('.transcript-line'));
+    transcriptLines.forEach((line) => {
+      line.querySelector('.transcript-time').addEventListener('click', () => {
+        if (!videoCover.classList.contains('hidden')) videoCover.click();
+        video.currentTime = Number(line.dataset.time);
+        video.play().catch(() => {});
+        document.getElementById('video-stage').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+    });
+    video.addEventListener('timeupdate', () => {
+      const t = video.currentTime;
+      transcriptLines.forEach((line, i) => {
+        const next = transcriptLines[i + 1];
+        line.classList.toggle('is-current', !video.paused && t >= Number(line.dataset.time) && (!next || t < Number(next.dataset.time)));
+      });
+    });
+    video.addEventListener('pause', () => transcriptLines.forEach((line) => line.classList.remove('is-current')));
 
     if (progress.quizUnlocked || progress.quizPassed) showQuiz();
     if (progress.quizPassed) showDone();
