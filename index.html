@@ -42,7 +42,7 @@
             "inverse-on-surface": "#e8f2fb",
             "background": "#f5faff",
             "on-tertiary": "#ffffff",
-            "primary-fixed": "#a8f0e3",
+            "primary-fixed": "#effbf8",
             "primary": "#00453d",
             "tertiary-fixed": "#8ff4e3",
             "error-container": "#ffdad6",
@@ -130,19 +130,11 @@
       opacity: 1 !important;
       visibility: visible !important;
     }
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #f1f5f9;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #cbd5e1;
-      border-radius: 4px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #94a3b8;
-    }
+    html { scrollbar-color: #00453d #effbf8; }
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #effbf8; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb { background: #00453d; border-radius: 9999px; border: 2px solid #effbf8; }
+    ::-webkit-scrollbar-thumb:hover { background: #005e54; }
   </style>
 </head>
 <body class="bg-surface font-body-md text-body-md text-on-surface antialiased flex flex-col min-h-screen">
