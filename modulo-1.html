@@ -118,6 +118,11 @@
     .slide-item.is-active { opacity: 1; visibility: visible; transition: opacity .35s ease; }
     .slide-item > .slide { transform-origin: top left; transform: scale(var(--deck-scale, 0.5)); }
     .slide-item img { max-width: none; }
+    /* La tarjeta de la presentación (slide + controles + puntos) tiene que entrar entera en la pantalla:
+       el ancho se limita según el alto disponible (≈256px entre header fijo, controles, puntos y aire) */
+    @media (min-width: 1024px) {
+      #capacitacion .capacitacion-wrap { max-width: min(80rem, max(48rem, calc((100dvh - 256px) * 16 / 9 + 98px))); }
+    }
 
     #deck-frame.is-fs { position: fixed; inset: 0; z-index: 100; border-radius: 0; background: #0b141a; display: flex; flex-direction: column; justify-content: center; align-items: center; }
     #deck-frame.is-fs .slide-stage,
@@ -203,7 +208,7 @@
 
 <!-- Format picker + content -->
 <section class="w-full bg-surface-container-low py-8 sm:py-12 lg:py-16" id="capacitacion">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="capacitacion-wrap max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <!-- Navegación entre módulos -->
 <nav class="flex items-center justify-between gap-2 mb-6 sm:mb-10" aria-label="Navegación entre módulos">
 <a class="inline-flex items-center gap-1.5 rounded-[10px] px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-bold bg-surface-container-lowest border border-surface-container shadow-sm text-on-surface hover:border-primary hover:text-primary transition-colors" href="index.html#modalidades">
