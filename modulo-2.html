@@ -357,23 +357,34 @@ Módulo 3<span aria-hidden="true" class="material-symbols-outlined text-[18px] t
 </div>
 </div>
 
-<!-- Panel: Podcast (placeholder) -->
+<!-- Panel: Podcast -->
 <div class="format-panel hidden" data-panel="podcast" role="tabpanel">
 <div class="bg-surface-container-lowest rounded-3xl p-6 sm:p-8 shadow-sm border border-surface-container">
+<audio id="module-audio" src="audio/modulo-2.mp3" preload="metadata"></audio>
 <div class="flex flex-col sm:flex-row items-center gap-6">
 <div class="w-32 h-32 rounded-2xl bg-gradient-to-br from-primary to-secondary-fixed-dim flex items-center justify-center shrink-0 shadow-md">
 <span aria-hidden="true" class="material-symbols-outlined text-white text-6xl">podcasts</span>
 </div>
-<div class="flex-1 w-full text-center sm:text-left">
-<span class="inline-block px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed text-xs font-bold mb-2">Próximamente</span>
+<div class="flex-1 w-full min-w-0 text-center sm:text-left">
+<span class="inline-block px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed text-xs font-bold mb-2">Podcast</span>
 <p class="font-headline-sm text-lg text-on-surface font-bold">Episodio 2 · Cargá tu catálogo</p>
 <p class="text-sm text-on-surface-variant mb-5">Escuchá la capacitación mientras hacés otras cosas.</p>
-<div class="flex items-center gap-4 opacity-50" aria-hidden="true">
-<span class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0"><span aria-hidden="true" class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span></span>
-<div class="flex-1 flex items-center justify-between h-10 min-w-0">
-<span class="w-1.5 rounded-full bg-primary/60 h-[30%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[60%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[45%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[80%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[55%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[35%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[70%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[90%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[50%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[25%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[65%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[40%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[75%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[55%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[30%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[60%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[85%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[45%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[35%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[70%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[50%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[25%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[60%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[40%]"></span>
+<div class="flex items-center gap-3 sm:gap-4">
+<button class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0 hover:opacity-90 transition-opacity" id="podcast-play" type="button" aria-label="Reproducir"><span aria-hidden="true" class="material-symbols-outlined" id="podcast-play-icon" style="font-variation-settings: 'FILL' 1;">play_arrow</span></button>
+<div class="relative flex-1 h-10 min-w-0 cursor-pointer" id="podcast-wave" role="slider" tabindex="0" aria-label="Posición del episodio" aria-valuemin="0" aria-valuemax="0" aria-valuenow="0">
+<div class="absolute inset-0 flex items-center gap-[3px]" aria-hidden="true"><span class="flex-1 rounded-full bg-primary/25 h-[75%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[65%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[70%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[75%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[80%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[30%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[35%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[45%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[30%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[50%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[80%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[85%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[55%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[80%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[45%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[30%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[20%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[65%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[35%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[75%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[85%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[85%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[40%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[60%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[35%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[20%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[40%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[70%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[65%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[70%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[95%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[55%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[40%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[35%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[45%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[20%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[70%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[75%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[80%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[60%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[85%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[30%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[30%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[40%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[50%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[40%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[80%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[90%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[60%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[60%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[55%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[30%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[20%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[65%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[50%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[70%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[80%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[95%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[35%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[55%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[40%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[30%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[25%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[80%] hidden sm:block"></span></div>
+<div class="absolute inset-0 flex items-center gap-[3px]" id="podcast-wave-fill" aria-hidden="true" style="clip-path: inset(0 100% 0 0);"><span class="flex-1 rounded-full bg-primary h-[75%]"></span><span class="flex-1 rounded-full bg-primary h-[65%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[70%]"></span><span class="flex-1 rounded-full bg-primary h-[75%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[80%]"></span><span class="flex-1 rounded-full bg-primary h-[30%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[35%]"></span><span class="flex-1 rounded-full bg-primary h-[45%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[30%]"></span><span class="flex-1 rounded-full bg-primary h-[50%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[80%]"></span><span class="flex-1 rounded-full bg-primary h-[85%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[55%]"></span><span class="flex-1 rounded-full bg-primary h-[80%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[45%]"></span><span class="flex-1 rounded-full bg-primary h-[30%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[20%]"></span><span class="flex-1 rounded-full bg-primary h-[65%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[35%]"></span><span class="flex-1 rounded-full bg-primary h-[75%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[85%]"></span><span class="flex-1 rounded-full bg-primary h-[85%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[40%]"></span><span class="flex-1 rounded-full bg-primary h-[60%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[35%]"></span><span class="flex-1 rounded-full bg-primary h-[20%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[40%]"></span><span class="flex-1 rounded-full bg-primary h-[70%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[65%]"></span><span class="flex-1 rounded-full bg-primary h-[70%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[95%]"></span><span class="flex-1 rounded-full bg-primary h-[55%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[40%]"></span><span class="flex-1 rounded-full bg-primary h-[35%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[45%]"></span><span class="flex-1 rounded-full bg-primary h-[20%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[70%]"></span><span class="flex-1 rounded-full bg-primary h-[75%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[80%]"></span><span class="flex-1 rounded-full bg-primary h-[60%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[85%]"></span><span class="flex-1 rounded-full bg-primary h-[30%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[30%]"></span><span class="flex-1 rounded-full bg-primary h-[40%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[50%]"></span><span class="flex-1 rounded-full bg-primary h-[40%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[80%]"></span><span class="flex-1 rounded-full bg-primary h-[90%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[60%]"></span><span class="flex-1 rounded-full bg-primary h-[60%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[55%]"></span><span class="flex-1 rounded-full bg-primary h-[30%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[20%]"></span><span class="flex-1 rounded-full bg-primary h-[65%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[50%]"></span><span class="flex-1 rounded-full bg-primary h-[70%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[80%]"></span><span class="flex-1 rounded-full bg-primary h-[95%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[35%]"></span><span class="flex-1 rounded-full bg-primary h-[55%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[40%]"></span><span class="flex-1 rounded-full bg-primary h-[30%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[25%]"></span><span class="flex-1 rounded-full bg-primary h-[80%] hidden sm:block"></span></div>
 </div>
-<span class="text-xs font-bold text-on-surface-variant shrink-0">--:--</span>
+<span class="text-xs font-bold text-on-surface-variant shrink-0 tabular-nums" id="podcast-time">0:00 / --:--</span>
+</div>
+<div class="mt-5 flex flex-col sm:flex-row sm:flex-wrap items-center gap-3 sm:gap-2">
+<div class="flex items-center gap-2">
+<button class="w-8 h-8 rounded-full bg-surface-container text-primary flex items-center justify-center hover:bg-primary-fixed transition-colors" id="podcast-back" type="button" aria-label="Retroceder 10 segundos"><span aria-hidden="true" class="material-symbols-outlined text-xl">replay_10</span></button>
+<button class="w-8 h-8 rounded-full bg-surface-container text-primary flex items-center justify-center hover:bg-primary-fixed transition-colors" id="podcast-forward" type="button" aria-label="Adelantar 10 segundos"><span aria-hidden="true" class="material-symbols-outlined text-xl">forward_10</span></button>
+</div>
+<span class="hidden sm:block w-px h-5 bg-surface-container-high mx-1" aria-hidden="true"></span>
+<span class="text-xs font-bold text-on-surface-variant sm:mr-1">Velocidad</span>
+<div class="flex flex-wrap justify-center gap-2"><button class="podcast-speed h-8 px-3 rounded-full text-xs font-bold tabular-nums transition-colors" data-rate="1" type="button" aria-pressed="false">1x</button><button class="podcast-speed h-8 px-3 rounded-full text-xs font-bold tabular-nums transition-colors" data-rate="1.25" type="button" aria-pressed="false">1.25x</button><button class="podcast-speed h-8 px-3 rounded-full text-xs font-bold tabular-nums transition-colors" data-rate="1.5" type="button" aria-pressed="false">1.5x</button><button class="podcast-speed h-8 px-3 rounded-full text-xs font-bold tabular-nums transition-colors" data-rate="1.75" type="button" aria-pressed="false">1.75x</button><button class="podcast-speed h-8 px-3 rounded-full text-xs font-bold tabular-nums transition-colors" data-rate="2" type="button" aria-pressed="false">2x</button></div>
 </div>
 </div>
 </div>
@@ -541,6 +552,7 @@ Continuar<span aria-hidden="true" class="material-symbols-outlined text-[20px]">
       });
       panels.forEach((p) => p.classList.toggle('hidden', p.dataset.panel !== name));
       if (name !== 'video') document.getElementById('module-video').pause();
+      if (name !== 'podcast') document.getElementById('module-audio').pause();
       if (name === 'presentacion') fit();
     }
     tabs.forEach((t) => t.addEventListener('click', () => selectFormat(t.dataset.format)));
@@ -795,6 +807,74 @@ Continuar<span aria-hidden="true" class="material-symbols-outlined text-[20px]">
       });
     });
     video.addEventListener('pause', () => transcriptLines.forEach((line) => line.classList.remove('is-current')));
+
+    // Podcast: reproductor propio con barras de progreso, saltos de 10 s y velocidad
+    const audio = document.getElementById('module-audio');
+    const playBtn = document.getElementById('podcast-play');
+    const playIcon = document.getElementById('podcast-play-icon');
+    const wave = document.getElementById('podcast-wave');
+    const waveFill = document.getElementById('podcast-wave-fill');
+    const timeLabel = document.getElementById('podcast-time');
+    const speedBtns = Array.from(document.querySelectorAll('.podcast-speed'));
+    const fmt = (s) => { s = Math.floor(s || 0); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); };
+    function updateAudio() {
+      const d = audio.duration || 0;
+      const ratio = d ? audio.currentTime / d : 0;
+      waveFill.style.clipPath = 'inset(0 ' + (100 - ratio * 100) + '% 0 0)';
+      timeLabel.textContent = fmt(audio.currentTime) + ' / ' + (d ? fmt(d) : '--:--');
+      wave.setAttribute('aria-valuemax', Math.floor(d));
+      wave.setAttribute('aria-valuenow', Math.floor(audio.currentTime));
+      wave.setAttribute('aria-valuetext', fmt(audio.currentTime) + ' de ' + fmt(d));
+    }
+    function seek(t) {
+      if (audio.duration) audio.currentTime = Math.max(0, Math.min(audio.duration, t));
+      updateAudio();
+    }
+    function setPlaying(playing) {
+      playIcon.textContent = playing ? 'pause' : 'play_arrow';
+      playBtn.setAttribute('aria-label', playing ? 'Pausar' : 'Reproducir');
+    }
+    function setRate(rate) {
+      audio.playbackRate = rate;
+      speedBtns.forEach((b) => {
+        const active = Number(b.dataset.rate) === rate;
+        b.setAttribute('aria-pressed', active);
+        b.className = 'podcast-speed h-8 px-3 rounded-full text-xs font-bold tabular-nums transition-colors ' +
+          (active ? 'bg-primary text-on-primary' : 'bg-surface-container text-primary hover:bg-primary-fixed');
+      });
+    }
+    playBtn.addEventListener('click', () => (audio.paused ? audio.play().catch(() => {}) : audio.pause()));
+    function tick() {
+      updateAudio();
+      if (!audio.paused) requestAnimationFrame(tick);
+    }
+    audio.addEventListener('play', () => { setPlaying(true); requestAnimationFrame(tick); });
+    audio.addEventListener('pause', () => setPlaying(false));
+    audio.addEventListener('timeupdate', updateAudio);
+    audio.addEventListener('loadedmetadata', updateAudio);
+    audio.addEventListener('ended', openQuiz);
+    document.getElementById('podcast-back').addEventListener('click', () => seek(audio.currentTime - 10));
+    document.getElementById('podcast-forward').addEventListener('click', () => seek(audio.currentTime + 10));
+    wave.addEventListener('click', (e) => {
+      const r = wave.getBoundingClientRect();
+      seek((e.clientX - r.left) / r.width * audio.duration);
+    });
+    wave.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+        e.preventDefault();
+        seek(audio.currentTime + (e.key === 'ArrowLeft' ? -5 : 5));
+      }
+    });
+    // El navegador conserva el tono de voz al cambiar la velocidad; se recuerda la última elegida
+    audio.preservesPitch = true;
+    speedBtns.forEach((b) => b.addEventListener('click', () => {
+      setRate(Number(b.dataset.rate));
+      try { localStorage.setItem('wba-podcast-rate', b.dataset.rate); } catch (e) {}
+    }));
+    let savedRate = 1;
+    try { savedRate = Number(localStorage.getItem('wba-podcast-rate')) || 1; } catch (e) {}
+    setRate(speedBtns.some((b) => Number(b.dataset.rate) === savedRate) ? savedRate : 1);
+    audio.addEventListener('loadedmetadata', () => { audio.playbackRate = Number(speedBtns.find((b) => b.getAttribute('aria-pressed') === 'true').dataset.rate); });
 
     if (progress.quizUnlocked || progress.quizPassed) showQuiz();
     if (progress.quizPassed) showDone();
