@@ -154,6 +154,9 @@
     .quiz-q.is-right .quiz-opt { cursor: default; }
     .quiz-opt:has(input:disabled:not(:checked)) { opacity: .5; }
     .quiz-item.is-wrong { border-color: #ba1a1a; }
+    .quiz-opt.quiz-card { flex-direction: column; align-items: stretch; padding: 12px; }
+    .quiz-opt.quiz-card img { max-width: 280px; margin: 0 auto; }
+    .quiz-opt.quiz-card input { margin-top: 2px; }
     .quiz-mark { position: absolute; transform: translate(-50%, -50%); width: 26px; height: 26px; border-radius: 9999px; background: #3de273; color: #002109; font-size: 13px; font-weight: 800; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 3px #ffffff; }
   </style>
 </head>
@@ -471,10 +474,10 @@ Módulo 2<span aria-hidden="true" class="material-symbols-outlined text-[18px] t
 <fieldset class="quiz-q bg-white rounded-2xl p-4 sm:p-6 border-2 border-transparent transition-colors" data-answer="a">
 <legend class="sr-only">Actividad 2</legend>
 <p class="font-bold text-on-surface mb-4"><span class="text-primary">2.</span> ¿Qué opción elegirías para modificar el horario de atención de tu negocio?</p>
-<div class="grid gap-3">
-<label class="quiz-opt"><input type="radio" name="q2" value="a"><img alt="Pantalla “Añade tu horario comercial”" class="w-16 sm:w-20 h-24 sm:h-28 object-cover object-top rounded-xl border border-surface-container shrink-0" loading="lazy" src="img/modulo-1/slide-img-09.jpg"><span><span class="block font-bold">Opción A</span>Editar el perfil comercial y buscar el campo de horario.</span></label>
-<label class="quiz-opt"><input type="radio" name="q2" value="b"><img alt="Pantalla Administrador de catálogos con el botón Añadir un artículo nuevo" class="w-16 sm:w-20 h-24 sm:h-28 object-cover object-top rounded-xl border border-surface-container shrink-0" loading="lazy" src="img/modulo-2/slide-img-04.jpg"><span><span class="block font-bold">Opción B</span>Entrar al catálogo y agregar un producto.</span></label>
-<label class="quiz-opt"><input type="radio" name="q2" value="c"><img alt="Chat de Dulce Hogar con una clienta" class="w-16 sm:w-20 h-24 sm:h-28 object-cover object-top rounded-xl border border-surface-container shrink-0" loading="lazy" src="img/modulo-3/slide-img-02.jpg"><span><span class="block font-bold">Opción C</span>Abrir una conversación con un cliente.</span></label>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+<label class="quiz-opt quiz-card"><img alt="Pantalla “Añade tu horario comercial”" class="w-full aspect-[3/4] object-cover object-top rounded-xl border border-surface-container" loading="lazy" src="img/modulo-1/slide-img-09.jpg"><span class="flex items-start gap-3"><input type="radio" name="q2" value="a"><span><span class="block font-bold">Opción A</span>Editar el perfil comercial y buscar el campo de horario.</span></span></label>
+<label class="quiz-opt quiz-card"><img alt="Pantalla Administrador de catálogos con el botón Añadir un artículo nuevo" class="w-full aspect-[3/4] object-cover object-top rounded-xl border border-surface-container" loading="lazy" src="img/modulo-2/slide-img-04.jpg"><span class="flex items-start gap-3"><input type="radio" name="q2" value="b"><span><span class="block font-bold">Opción B</span>Entrar al catálogo y agregar un producto.</span></span></label>
+<label class="quiz-opt quiz-card"><img alt="Chat de Dulce Hogar con una clienta" class="w-full aspect-[3/4] object-cover object-top rounded-xl border border-surface-container" loading="lazy" src="img/modulo-3/slide-img-02.jpg"><span class="flex items-start gap-3"><input type="radio" name="q2" value="c"><span><span class="block font-bold">Opción C</span>Abrir una conversación con un cliente.</span></span></label>
 </div>
 <p class="quiz-feedback hidden text-sm font-semibold mt-3"></p>
 </fieldset>
