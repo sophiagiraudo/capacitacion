@@ -152,6 +152,9 @@
     .quiz-q.is-wrong { border-color: #ba1a1a; }
     .quiz-q.is-right { border-color: #3de273; }
     .quiz-q.is-right .quiz-opt { cursor: default; }
+    .quiz-opt:has(input:disabled:not(:checked)) { opacity: .5; }
+    .quiz-item.is-wrong { border-color: #ba1a1a; }
+    .quiz-mark { position: absolute; transform: translate(-50%, -50%); width: 26px; height: 26px; border-radius: 9999px; background: #3de273; color: #002109; font-size: 13px; font-weight: 800; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 3px #ffffff; }
   </style>
 </head>
 <body class="bg-surface font-body-md text-body-md text-on-surface antialiased flex flex-col min-h-screen">
@@ -426,63 +429,122 @@ Módulo 3<span aria-hidden="true" class="material-symbols-outlined text-[18px] t
 <div class="flex-1">
 <span class="font-label-sm text-xs text-primary uppercase font-bold tracking-wider">Actividad evaluativa · Obligatoria</span>
 <h3 class="font-headline-lg text-2xl sm:text-3xl text-on-surface font-extrabold mt-1">¿Cuánto aprendiste?</h3>
-<p class="text-sm text-on-surface-variant mt-1">Respondé todas las preguntas correctamente para completar el módulo. Si te equivocás, podés volver a intentarlo.</p>
+<p class="text-sm text-on-surface-variant mt-1">Completá las cuatro actividades correctamente para terminar el módulo. Si te equivocás, podés volver a intentarlo.</p>
 </div>
-<span class="self-start sm:self-center text-xs font-bold bg-white rounded-full px-3 py-1.5 border border-surface-container shrink-0"><span id="quiz-answered">0</span> / <span id="quiz-count">5</span> respondidas</span>
+<span class="self-start sm:self-center text-xs font-bold bg-white rounded-full px-3 py-1.5 border border-surface-container shrink-0"><span id="quiz-answered">0</span> / <span id="quiz-count">4</span> respondidas</span>
 </div>
 
 <form class="space-y-4" id="quiz-form" novalidate>
-<fieldset class="quiz-q bg-white rounded-2xl p-4 sm:p-6 border-2 border-transparent transition-colors" data-answer="b">
-<legend class="sr-only">Pregunta 1</legend>
-<p class="font-bold text-on-surface mb-3"><span class="text-primary">1.</span> ¿Dónde encontrás la opción Catálogo en WhatsApp Business?</p>
-<div class="grid gap-2">
-<label class="quiz-opt"><input type="radio" name="q1" value="a"><span>En Ajustes, dentro de Chats</span></label>
-<label class="quiz-opt"><input type="radio" name="q1" value="b"><span>En Herramientas, en “Haz crecer tu empresa”</span></label>
-<label class="quiz-opt"><input type="radio" name="q1" value="c"><span>En la pestaña Llamadas</span></label>
+<fieldset class="quiz-q bg-white rounded-2xl p-4 sm:p-6 border-2 border-transparent transition-colors" data-type="tf">
+<legend class="sr-only">Actividad 1</legend>
+<p class="font-bold text-on-surface mb-4"><span class="text-primary">1.</span> Indicá si las siguientes afirmaciones son verdaderas o falsas.</p>
+<div class="flex flex-col md:flex-row gap-5 md:gap-8 md:items-start">
+<img alt="Catálogo de Dulce Hogar con dos budines en revisión" class="w-44 sm:w-52 self-center md:self-start rounded-2xl border border-surface-container shadow-sm shrink-0" loading="lazy" src="img/modulo-2/slide-img-02.jpg">
+<div class="flex-1 space-y-3">
+<div class="quiz-item rounded-xl border-2 border-transparent p-1" data-answer="v">
+<p class="font-semibold text-on-surface mb-2">a. Para cargar productos en el catálogo, primero hay que ingresar a Herramientas y luego a Catálogo.</p>
+<div class="grid grid-cols-2 gap-2">
+<label class="quiz-opt"><input type="radio" name="q1a" value="v"><span>Verdadero</span></label>
+<label class="quiz-opt"><input type="radio" name="q1a" value="f"><span>Falso</span></label>
 </div>
-<p class="quiz-feedback hidden text-sm font-semibold mt-3"></p>
-</fieldset>
-
-<fieldset class="quiz-q bg-white rounded-2xl p-4 sm:p-6 border-2 border-transparent transition-colors" data-answer="c">
-<legend class="sr-only">Pregunta 2</legend>
-<p class="font-bold text-on-surface mb-3"><span class="text-primary">2.</span> ¿Qué datos son obligatorios al cargar un artículo?</p>
-<div class="grid gap-2">
-<label class="quiz-opt"><input type="radio" name="q2" value="a"><span>El precio y la descripción</span></label>
-<label class="quiz-opt"><input type="radio" name="q2" value="b"><span>Solo el precio</span></label>
-<label class="quiz-opt"><input type="radio" name="q2" value="c"><span>La foto, el nombre y el país de origen</span></label>
+</div>
+<div class="quiz-item rounded-xl border-2 border-transparent p-1" data-answer="f">
+<p class="font-semibold text-on-surface mb-2">b. El enlace web y el código del artículo son datos obligatorios para todos los productos.</p>
+<div class="grid grid-cols-2 gap-2">
+<label class="quiz-opt"><input type="radio" name="q1b" value="v"><span>Verdadero</span></label>
+<label class="quiz-opt"><input type="radio" name="q1b" value="f"><span>Falso</span></label>
+</div>
+</div>
+<div class="quiz-item rounded-xl border-2 border-transparent p-1" data-answer="v">
+<p class="font-semibold text-on-surface mb-2">c. Si un artículo aparece en revisión, significa que WhatsApp todavía debe aprobarlo.</p>
+<div class="grid grid-cols-2 gap-2">
+<label class="quiz-opt"><input type="radio" name="q1c" value="v"><span>Verdadero</span></label>
+<label class="quiz-opt"><input type="radio" name="q1c" value="f"><span>Falso</span></label>
+</div>
+</div>
+<div class="quiz-item rounded-xl border-2 border-transparent p-1" data-answer="f">
+<p class="font-semibold text-on-surface mb-2">d. Una vez cargado un producto, ya no es necesario repetir el procedimiento para los demás.</p>
+<div class="grid grid-cols-2 gap-2">
+<label class="quiz-opt"><input type="radio" name="q1d" value="v"><span>Verdadero</span></label>
+<label class="quiz-opt"><input type="radio" name="q1d" value="f"><span>Falso</span></label>
+</div>
+</div>
+</div>
 </div>
 <p class="quiz-feedback hidden text-sm font-semibold mt-3"></p>
 </fieldset>
 
 <fieldset class="quiz-q bg-white rounded-2xl p-4 sm:p-6 border-2 border-transparent transition-colors" data-answer="a">
-<legend class="sr-only">Pregunta 3</legend>
-<p class="font-bold text-on-surface mb-3"><span class="text-primary">3.</span> Guardaste un artículo y aparece con un relojito. ¿Qué significa?</p>
-<div class="grid gap-2">
-<label class="quiz-opt"><input type="radio" name="q3" value="a"><span>Está en revisión: WhatsApp tiene que aprobarlo</span></label>
-<label class="quiz-opt"><input type="radio" name="q3" value="b"><span>La oferta del producto está por vencer</span></label>
-<label class="quiz-opt"><input type="radio" name="q3" value="c"><span>Hubo un error y hay que cargarlo de nuevo</span></label>
+<legend class="sr-only">Actividad 2</legend>
+<p class="font-bold text-on-surface mb-2"><span class="text-primary">2.</span> ¿Qué opción elegirías?</p>
+<p class="text-sm text-on-surface-variant mb-4">Querés publicar un producto para que tus clientes puedan consultar su foto, precio y descripción. ¿Qué opción de la pantalla <span class="font-semibold text-on-surface">Herramientas</span> debés seleccionar?</p>
+<div class="flex flex-col md:flex-row gap-5 md:gap-8 md:items-start">
+<div class="flex gap-3 self-center md:self-start shrink-0">
+<div class="relative w-36 sm:w-44">
+<img alt="Pantalla Herramientas con la opción Catálogo marcada con la letra A" class="w-full rounded-2xl border border-surface-container shadow-sm" loading="lazy" src="img/modulo-2/slide-img-03.jpg">
+<span aria-hidden="true" class="quiz-mark" style="left: 12%; top: 50.4%;">A</span>
+</div>
+<div class="relative w-36 sm:w-44">
+<img alt="Pantalla Herramientas con las opciones Listas y Respuestas rápidas marcadas con las letras B y C" class="w-full rounded-2xl border border-surface-container shadow-sm" loading="lazy" src="img/modulo-3/slide-img-03.jpg">
+<span aria-hidden="true" class="quiz-mark" style="left: 12%; top: 29.5%;">B</span>
+<span aria-hidden="true" class="quiz-mark" style="left: 12%; top: 51.3%;">C</span>
+</div>
+</div>
+<div class="flex-1 grid gap-2 content-start">
+<label class="quiz-opt"><input type="radio" name="q2" value="a"><span>A. Catálogo</span></label>
+<label class="quiz-opt"><input type="radio" name="q2" value="b"><span>B. Listas</span></label>
+<label class="quiz-opt"><input type="radio" name="q2" value="c"><span>C. Respuestas rápidas</span></label>
+</div>
 </div>
 <p class="quiz-feedback hidden text-sm font-semibold mt-3"></p>
 </fieldset>
 
-<fieldset class="quiz-q bg-white rounded-2xl p-4 sm:p-6 border-2 border-transparent transition-colors" data-answer="b">
-<legend class="sr-only">Pregunta 4</legend>
-<p class="font-bold text-on-surface mb-3"><span class="text-primary">4.</span> Una vez aprobado, ¿dónde ven tus clientes el catálogo?</p>
+<fieldset class="quiz-q bg-white rounded-2xl p-4 sm:p-6 border-2 border-transparent transition-colors" data-type="checklist">
+<legend class="sr-only">Actividad 3</legend>
+<div class="flex flex-wrap items-center gap-2 mb-2">
+<p class="font-bold text-on-surface"><span class="text-primary">3.</span> Creá tu propio catálogo</p>
+<span class="text-[11px] font-bold uppercase tracking-wider bg-secondary-fixed text-on-secondary-fixed rounded-full px-2.5 py-1">Evidencia obligatoria</span>
+</div>
+<p class="text-sm text-on-surface-variant mb-4">En WhatsApp Business, creá un catálogo con <span class="font-semibold text-on-surface">al menos 3 productos o servicios</span>. Podés usar un negocio real o uno ficticio.</p>
+<div class="rounded-2xl border border-surface-container p-4 sm:p-5 mb-4">
+<p class="font-semibold text-on-surface mb-3">Para cada artículo:</p>
 <div class="grid gap-2">
-<label class="quiz-opt"><input type="radio" name="q4" value="a"><span>Solo si se lo mandás por mail</span></label>
-<label class="quiz-opt"><input type="radio" name="q4" value="b"><span>En la info de tu empresa, con el botón Catálogo</span></label>
-<label class="quiz-opt"><input type="radio" name="q4" value="c"><span>En tus estados de WhatsApp</span></label>
+<label class="quiz-opt"><input class="rounded" type="checkbox" name="q3"><span>Completé el nombre.</span></label>
+<label class="quiz-opt"><input class="rounded" type="checkbox" name="q3"><span>Agregué una foto.</span></label>
+<label class="quiz-opt"><input class="rounded" type="checkbox" name="q3"><span>Indiqué el precio, si corresponde.</span></label>
+<label class="quiz-opt"><input class="rounded" type="checkbox" name="q3"><span>Escribí una descripción breve.</span></label>
+<label class="quiz-opt"><input class="rounded" type="checkbox" name="q3"><span>Guardé los cambios.</span></label>
+</div>
+<p class="text-xs text-on-surface-variant mt-3"><span class="checklist-count">0</span> de 5 pasos revisados</p>
+</div>
+<p class="font-semibold text-on-surface mb-1">Entrega final</p>
+<p class="text-sm text-on-surface-variant mb-3">Subí una captura del catálogo con los artículos cargados. Si algún producto está en revisión, no hace falta esperar a que lo aprueben.</p>
+<div class="flex flex-col sm:flex-row sm:items-center gap-4">
+<label class="capture-btn h-12 px-6 rounded-full border-2 border-primary text-primary font-bold text-sm inline-flex items-center justify-center gap-2 cursor-pointer hover:bg-surface-container transition-colors self-start">
+<span aria-hidden="true" class="material-symbols-outlined text-[20px]">upload</span><span class="capture-label">Subir captura</span>
+<input accept="image/*" class="capture-input sr-only" type="file">
+</label>
+<img alt="Captura del catálogo subida" class="capture-preview hidden w-28 rounded-xl border border-surface-container shadow-sm">
 </div>
 <p class="quiz-feedback hidden text-sm font-semibold mt-3"></p>
 </fieldset>
 
-<fieldset class="quiz-q bg-white rounded-2xl p-4 sm:p-6 border-2 border-transparent transition-colors" data-answer="c">
-<legend class="sr-only">Pregunta 5</legend>
-<p class="font-bold text-on-surface mb-3"><span class="text-primary">5.</span> ¿Qué podés hacer desde los tres puntos (•••) del Administrador de catálogos?</p>
+<fieldset class="quiz-q bg-white rounded-2xl p-4 sm:p-6 border-2 border-transparent transition-colors" data-type="multi" data-answer="a,b">
+<legend class="sr-only">Actividad 4</legend>
+<p class="font-bold text-on-surface mb-2"><span class="text-primary">4.</span> Elegí cómo compartirlo</p>
+<p class="text-sm text-on-surface-variant mb-4">Terminaste de cargar tus productos y querés que una persona vea tu catálogo completo sin tener que preguntarte por cada artículo.</p>
+<div class="flex flex-col md:flex-row gap-5 md:gap-8 md:items-start">
+<img alt="Menú “Selecciona una acción” con Reenviar, Compartir, Colecciones, Ajustes del catálogo y Promocionar" class="w-44 sm:w-52 self-center md:self-start rounded-2xl border border-surface-container shadow-sm shrink-0" loading="lazy" src="img/modulo-2/slide-img-10.jpg">
+<div class="flex-1">
+<p class="font-semibold text-on-surface mb-1">¿Qué harías según la capacitación?</p>
+<p class="text-sm text-on-surface-variant mb-3">Elegí una o más opciones.</p>
 <div class="grid gap-2">
-<label class="quiz-opt"><input type="radio" name="q5" value="a"><span>Cambiar el nombre del negocio</span></label>
-<label class="quiz-opt"><input type="radio" name="q5" value="b"><span>Borrar todos los chats</span></label>
-<label class="quiz-opt"><input type="radio" name="q5" value="c"><span>Reenviar o compartir el catálogo y armar colecciones</span></label>
+<label class="quiz-opt"><input class="rounded" type="checkbox" name="q4" value="a"><span>Reenviar el catálogo a un chat de WhatsApp.</span></label>
+<label class="quiz-opt"><input class="rounded" type="checkbox" name="q4" value="b"><span>Compartir el enlace del catálogo en redes sociales.</span></label>
+<label class="quiz-opt"><input class="rounded" type="checkbox" name="q4" value="c"><span>Crear una colección para agrupar productos.</span></label>
+<label class="quiz-opt"><input class="rounded" type="checkbox" name="q4" value="d"><span>Enviar una respuesta rápida sin mostrar el catálogo.</span></label>
+</div>
+</div>
 </div>
 <p class="quiz-feedback hidden text-sm font-semibold mt-3"></p>
 </fieldset>
@@ -716,22 +778,94 @@ Continuar<span aria-hidden="true" class="material-symbols-outlined text-[20px]">
       else if (frame.classList.contains('is-fs')) setFs(false);
       setTimeout(() => document.getElementById('evaluacion').scrollIntoView({ behavior: 'smooth' }), 50);
     }
+    // Cada actividad se responde y se corrige según su tipo: opción única (por defecto),
+    // verdadero o falso (tf), varias opciones (multi) o lista de comprobación con captura (checklist)
+    const checkedValues = (q) => Array.from(q.querySelectorAll('input:checked')).map((i) => i.value).sort().join(',');
+    function isAnswered(q) {
+      const type = q.dataset.type;
+      if (type === 'tf') return Array.from(q.querySelectorAll('.quiz-item')).every((item) => item.querySelector('input:checked'));
+      if (type === 'multi') {
+        const count = q.querySelectorAll('input:checked').length;
+        return q.dataset.pick ? count === Number(q.dataset.pick) : count > 0;
+      }
+      if (type === 'checklist') return !q.querySelector('input[type="checkbox"]:not(:checked)') && Boolean(progress.capture);
+      return Boolean(q.querySelector('input:checked'));
+    }
+    function isRight(q) {
+      const type = q.dataset.type;
+      if (type === 'tf') return Array.from(q.querySelectorAll('.quiz-item')).every(isItemRight);
+      if (type === 'multi') return checkedValues(q) === q.dataset.answer;
+      if (type === 'checklist') return isAnswered(q);
+      return checkedValues(q) === q.dataset.answer;
+    }
+    function isItemRight(item) {
+      const checked = item.querySelector('input:checked');
+      return Boolean(checked) && checked.value === item.dataset.answer;
+    }
     function updateAnswered() {
-      const answered = questions.filter((q) => q.querySelector('input:checked')).length;
+      const answered = questions.filter(isAnswered).length;
       document.getElementById('quiz-answered').textContent = answered;
       submitBtn.disabled = progress.quizPassed || answered < questions.length;
+      questions.forEach((q) => {
+        const count = q.querySelector('.checklist-count');
+        if (count) count.textContent = q.querySelectorAll('input[type="checkbox"]:checked').length;
+        // Con un límite de opciones, al alcanzarlo se bloquean las demás
+        if (q.dataset.pick && !q.classList.contains('is-right')) {
+          const full = q.querySelectorAll('input:checked').length >= Number(q.dataset.pick);
+          q.querySelectorAll('input:not(:checked)').forEach((input) => { input.disabled = full; });
+        }
+      });
     }
     function lockQuestion(q) {
       q.classList.remove('is-wrong');
       q.classList.add('is-right');
+      q.querySelectorAll('.quiz-item').forEach((item) => item.classList.remove('is-wrong'));
       q.querySelectorAll('input').forEach((input) => { input.disabled = true; });
       const fb = q.querySelector('.quiz-feedback');
-      fb.textContent = '¡Correcto!';
+      fb.textContent = q.dataset.type === 'checklist' ? '¡Evidencia entregada!' : '¡Correcto!';
       fb.className = 'quiz-feedback text-sm font-semibold mt-3 text-secondary';
     }
+    // Captura de la evidencia: se achica antes de guardarla para que entre en el almacenamiento del navegador
+    function showCapture(src) {
+      quizForm.querySelectorAll('.capture-preview').forEach((img) => {
+        img.src = src;
+        img.classList.remove('hidden');
+      });
+      quizForm.querySelectorAll('.capture-label').forEach((label) => { label.textContent = 'Cambiar captura'; });
+    }
+    quizForm.querySelectorAll('.capture-input').forEach((input) => input.addEventListener('change', () => {
+      const file = input.files[0];
+      if (!file || !file.type.startsWith('image/')) return;
+      const img = new Image();
+      img.onload = () => {
+        const scale = Math.min(1, 900 / Math.max(img.width, img.height));
+        const canvas = document.createElement('canvas');
+        canvas.width = Math.round(img.width * scale);
+        canvas.height = Math.round(img.height * scale);
+        canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+        URL.revokeObjectURL(img.src);
+        progress.capture = canvas.toDataURL('image/jpeg', 0.8);
+        saveProgress();
+        showCapture(progress.capture);
+        const q = input.closest('.quiz-q');
+        if (q.classList.contains('is-wrong')) {
+          q.classList.remove('is-wrong');
+          q.querySelector('.quiz-feedback').classList.add('hidden');
+        }
+        updateAnswered();
+      };
+      img.src = URL.createObjectURL(file);
+    }));
     function showDone() {
       questions.forEach((q) => {
-        q.querySelector('input[value="' + q.dataset.answer + '"]').checked = true;
+        const type = q.dataset.type;
+        if (type === 'tf') {
+          q.querySelectorAll('.quiz-item').forEach((item) => { item.querySelector('input[value="' + item.dataset.answer + '"]').checked = true; });
+        } else if (type === 'checklist') {
+          q.querySelectorAll('input[type="checkbox"]').forEach((input) => { input.checked = true; });
+        } else {
+          q.dataset.answer.split(',').forEach((value) => { q.querySelector('input[value="' + value + '"]').checked = true; });
+        }
         lockQuestion(q);
       });
       quizMsg.classList.add('hidden');
@@ -744,6 +878,7 @@ Continuar<span aria-hidden="true" class="material-symbols-outlined text-[20px]">
       const q = e.target.closest('.quiz-q');
       if (q && q.classList.contains('is-wrong')) {
         q.classList.remove('is-wrong');
+        q.querySelectorAll('.quiz-item').forEach((item) => item.classList.remove('is-wrong'));
         q.querySelector('.quiz-feedback').classList.add('hidden');
       }
       updateAnswered();
@@ -752,12 +887,12 @@ Continuar<span aria-hidden="true" class="material-symbols-outlined text-[20px]">
       e.preventDefault();
       let wrong = 0;
       questions.forEach((q) => {
-        const checked = q.querySelector('input:checked');
-        if (checked && checked.value === q.dataset.answer) { lockQuestion(q); return; }
+        if (isRight(q)) { lockQuestion(q); return; }
         wrong++;
         q.classList.add('is-wrong');
+        q.querySelectorAll('.quiz-item').forEach((item) => item.classList.toggle('is-wrong', !isItemRight(item)));
         const fb = q.querySelector('.quiz-feedback');
-        fb.textContent = 'Revisá esta respuesta y probá de nuevo.';
+        fb.textContent = q.dataset.type === 'tf' ? 'Revisá las afirmaciones marcadas y probá de nuevo.' : 'Revisá esta respuesta y probá de nuevo.';
         fb.className = 'quiz-feedback text-sm font-semibold mt-3 text-error';
       });
       if (wrong === 0) {
@@ -773,6 +908,7 @@ Continuar<span aria-hidden="true" class="material-symbols-outlined text-[20px]">
       updateAnswered();
       questions.find((q) => q.classList.contains('is-wrong')).scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
+    if (progress.capture) showCapture(progress.capture);
     document.getElementById('quiz-back').addEventListener('click', () => {
       selectFormat('presentacion');
       go(0);
