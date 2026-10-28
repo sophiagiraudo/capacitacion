@@ -219,21 +219,10 @@
 </a>
 </nav>
 
-<!-- Submódulos: cada uno tiene su presentación, video, podcast y actividad -->
-<p class="font-label-sm text-xs text-primary uppercase font-bold tracking-wider mb-3">Elegí un submódulo</p>
-<nav class="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 mb-8 sm:mb-12" id="section-nav" aria-label="Submódulos">
-<button class="section-tab" data-section="0" type="button"><span class="section-icon"><span aria-hidden="true" class="material-symbols-outlined text-[20px]">forum</span></span><span class="min-w-0 leading-tight">3.1 Mensaje de bienvenida</span><span aria-hidden="true" class="section-check material-symbols-outlined">check_circle</span></button>
-<button class="section-tab" data-section="1" type="button"><span class="section-icon"><span aria-hidden="true" class="material-symbols-outlined text-[20px]">schedule</span></span><span class="min-w-0 leading-tight">3.2 Mensaje de ausencia</span><span aria-hidden="true" class="section-check material-symbols-outlined">check_circle</span></button>
-<button class="section-tab" data-section="2" type="button"><span class="section-icon"><span aria-hidden="true" class="material-symbols-outlined text-[20px]">label</span></span><span class="min-w-0 leading-tight">3.3 Listas</span><span aria-hidden="true" class="section-check material-symbols-outlined">check_circle</span></button>
-<button class="section-tab" data-section="3" type="button"><span class="section-icon"><span aria-hidden="true" class="material-symbols-outlined text-[20px]">bolt</span></span><span class="min-w-0 leading-tight">3.4 Respuestas rápidas</span><span aria-hidden="true" class="section-check material-symbols-outlined">check_circle</span></button>
-</nav>
-
 <p class="font-label-sm text-xs text-primary uppercase font-bold tracking-wider mb-1" id="section-kicker">Submódulo 3.1 · Mensaje de bienvenida</p>
 <h2 class="font-headline-lg text-2xl sm:text-3xl text-on-surface font-extrabold tracking-tight mb-4 sm:mb-6">¿Cómo querés capacitarte?</h2>
 
-<!-- Formatos: en fila arriba en mobile/tablet, en columna al costado del contenido en desktop -->
-<div class="lg:flex lg:items-start lg:gap-6">
-<div class="grid grid-cols-3 lg:grid-cols-1 lg:w-60 lg:shrink-0 gap-2 sm:gap-4 lg:gap-3 mb-6 sm:mb-8 lg:mb-0" role="tablist" aria-label="Formato de capacitación">
+<div class="grid grid-cols-3 gap-2 sm:gap-4 mb-6 sm:mb-8" role="tablist" aria-label="Formato de capacitación">
 <button class="format-tab group text-center sm:text-left rounded-2xl p-3 sm:p-5 border-2 transition-all flex flex-col sm:flex-row items-center gap-2 sm:gap-4" data-format="presentacion" role="tab" type="button">
 <span class="format-icon w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shrink-0 transition-colors"><span aria-hidden="true" class="material-symbols-outlined text-2xl">slideshow</span></span>
 <span class="flex flex-col items-center sm:items-start">
@@ -257,6 +246,17 @@
 </button>
 </div>
 
+<!-- Submódulos: cada uno tiene su presentación, video, podcast y actividad. En desktop van en una columna al costado del contenido -->
+<div class="lg:flex lg:items-start lg:gap-6">
+<div class="lg:w-60 lg:shrink-0 mb-4 sm:mb-6 lg:mb-0">
+<p class="font-label-sm text-xs text-primary uppercase font-bold tracking-wider mb-3">Submódulos</p>
+<nav class="grid grid-cols-2 lg:grid-cols-1 gap-2 sm:gap-3" id="section-nav" aria-label="Submódulos">
+<button class="section-tab" data-section="0" type="button"><span class="section-icon"><span aria-hidden="true" class="material-symbols-outlined text-[20px]">forum</span></span><span class="min-w-0 leading-tight">3.1 Mensaje de bienvenida</span><span aria-hidden="true" class="section-check material-symbols-outlined">check_circle</span></button>
+<button class="section-tab" data-section="1" type="button"><span class="section-icon"><span aria-hidden="true" class="material-symbols-outlined text-[20px]">schedule</span></span><span class="min-w-0 leading-tight">3.2 Mensaje de ausencia</span><span aria-hidden="true" class="section-check material-symbols-outlined">check_circle</span></button>
+<button class="section-tab" data-section="2" type="button"><span class="section-icon"><span aria-hidden="true" class="material-symbols-outlined text-[20px]">label</span></span><span class="min-w-0 leading-tight">3.3 Listas</span><span aria-hidden="true" class="section-check material-symbols-outlined">check_circle</span></button>
+<button class="section-tab" data-section="3" type="button"><span class="section-icon"><span aria-hidden="true" class="material-symbols-outlined text-[20px]">bolt</span></span><span class="min-w-0 leading-tight">3.4 Respuestas rápidas</span><span aria-hidden="true" class="section-check material-symbols-outlined">check_circle</span></button>
+</nav>
+</div>
 <div class="lg:flex-1 lg:min-w-0">
 <!-- Panel: Presentación -->
 <div class="format-panel" data-panel="presentacion" role="tabpanel">
