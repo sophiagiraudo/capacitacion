@@ -121,10 +121,10 @@
     .slide-item.is-active { opacity: 1; visibility: visible; transition: opacity .35s ease; }
     .slide-item > .slide { transform-origin: top left; transform: scale(var(--deck-scale, 0.5)); }
     .slide-item img { max-width: none; }
-    /* La tarjeta de la presentación (slide + controles + puntos) tiene que entrar entera en la pantalla:
+    /* La tarjeta de la presentación/video (slide + controles + puntos) tiene que entrar entera en la pantalla:
        el ancho se limita según el alto disponible (≈256px entre header fijo, controles, puntos y aire) */
     @media (min-width: 1024px) {
-      #capacitacion .capacitacion-wrap { max-width: min(80rem, max(48rem, calc((100dvh - 256px) * 16 / 9 + 98px))); }
+      #capacitacion .media-card { max-width: max(44rem, calc((100dvh - 256px) * 16 / 9 + 34px)); margin-inline: auto; }
     }
 
     #deck-frame.is-fs { position: fixed; inset: 0; z-index: 100; border-radius: 0; background: #0b141a; display: flex; flex-direction: column; justify-content: center; align-items: center; }
@@ -250,7 +250,7 @@ Módulo 3<span aria-hidden="true" class="material-symbols-outlined text-[18px] t
 
 <!-- Panel: Presentación -->
 <div class="format-panel" data-panel="presentacion" role="tabpanel">
-<div class="bg-surface-container-lowest rounded-2xl sm:rounded-3xl p-1.5 sm:p-4 shadow-sm border border-surface-container">
+<div class="media-card bg-surface-container-lowest rounded-2xl sm:rounded-3xl p-1.5 sm:p-4 shadow-sm border border-surface-container">
 <div>
 <div class="rounded-2xl overflow-hidden" id="deck-frame">
 <p class="fs-rotate-hint items-center gap-2 text-primary-fixed-dim text-sm font-semibold mb-4"><span aria-hidden="true" class="material-symbols-outlined">screen_rotation</span>Girá el celular para verlo más grande</p>
@@ -316,7 +316,7 @@ Módulo 3<span aria-hidden="true" class="material-symbols-outlined text-[18px] t
 
 <!-- Panel: Video -->
 <div class="format-panel hidden" data-panel="video" role="tabpanel">
-<div class="bg-surface-container-lowest rounded-2xl sm:rounded-3xl p-1.5 sm:p-4 shadow-sm border border-surface-container">
+<div class="media-card bg-surface-container-lowest rounded-2xl sm:rounded-3xl p-1.5 sm:p-4 shadow-sm border border-surface-container">
 <div class="video-stage relative w-full rounded-2xl overflow-hidden bg-[#0b141a]" id="video-stage">
 <video class="absolute inset-0 w-full h-full object-contain" id="module-video" src="video/modulo-2.mp4" preload="metadata" playsinline controls hidden></video>
 <button class="group absolute inset-0 w-full h-full focus:outline-none focus-visible:ring-4 focus-visible:ring-secondary-fixed-dim" id="video-cover" type="button" aria-label="Reproducir el video: Cargá tu catálogo">
