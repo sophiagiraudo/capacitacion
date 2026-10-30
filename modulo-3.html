@@ -121,6 +121,15 @@
     .slide-item.is-active { opacity: 1; visibility: visible; transition: opacity .35s ease; }
     .slide-item > .slide { transform-origin: top left; transform: scale(var(--deck-scale, 0.5)); }
     .slide-item img { max-width: none; }
+    /* Video vertical: portada 16:9 y, al reproducir, el visor se estira para que se lea la pantalla del celular */
+    .video-stage { aspect-ratio: 16 / 9; }
+    .video-stage.is-playing { aspect-ratio: auto; height: min(85vh, 205vw, 900px); }
+    /* Transcripción del video */
+    .transcript > summary { list-style: none; }
+    .transcript > summary::-webkit-details-marker { display: none; }
+    .transcript[open] .transcript-chevron { transform: rotate(180deg); }
+    .transcript-line.is-current { background: #eaf5fe; }
+    .transcript-line.is-current .transcript-time { background: #00453d; color: #ffffff; }
     /* La tarjeta de la presentación/video (slide + controles + puntos) tiene que entrar entera en la pantalla:
        el ancho se limita según el alto disponible (≈256px entre header fijo, controles, puntos y aire) */
     @media (min-width: 1024px) {
@@ -230,14 +239,14 @@
 <span class="format-icon w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shrink-0 transition-colors"><span aria-hidden="true" class="material-symbols-outlined text-2xl">play_circle</span></span>
 <span class="flex flex-col items-center sm:items-start">
 <span class="font-title-md text-sm sm:text-base font-bold text-on-surface">Video</span>
-<span class="text-[11px] sm:text-xs text-on-surface-variant font-semibold">Próximamente</span>
+<span class="text-[11px] sm:text-xs text-on-surface-variant font-semibold">Menos de 1 min</span>
 </span>
 </button>
 <button class="format-tab group text-center sm:text-left rounded-2xl p-3 sm:p-5 border-2 transition-all flex flex-col sm:flex-row items-center gap-2 sm:gap-4" data-format="podcast" role="tab" type="button">
 <span class="format-icon w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shrink-0 transition-colors"><span aria-hidden="true" class="material-symbols-outlined text-2xl">headphones</span></span>
 <span class="flex flex-col items-center sm:items-start">
 <span class="font-title-md text-sm sm:text-base font-bold text-on-surface">Podcast</span>
-<span class="text-[11px] sm:text-xs text-on-surface-variant font-semibold">Próximamente</span>
+<span class="text-[11px] sm:text-xs text-on-surface-variant font-semibold">Menos de 3 min</span>
 </span>
 </button>
 </div>
@@ -350,9 +359,72 @@
 </div>
 </div>
 
-<!-- Panel: Video (placeholder) -->
+<!-- Panel: Video (cada submódulo tiene el suyo; los que todavía no tienen grabación muestran "Próximamente") -->
 <div class="format-panel hidden" data-panel="video" role="tabpanel">
-<div class="bg-surface-container-lowest rounded-3xl p-6 sm:p-8 shadow-sm border border-surface-container">
+<div class="media-card bg-surface-container-lowest rounded-2xl sm:rounded-3xl p-1.5 sm:p-4 shadow-sm border border-surface-container" id="video-card">
+<div class="video-stage relative w-full rounded-2xl overflow-hidden bg-[#0b141a]" id="video-stage">
+<video class="absolute inset-0 w-full h-full object-contain" id="module-video" preload="metadata" playsinline controls hidden></video>
+<button class="group absolute inset-0 w-full h-full focus:outline-none focus-visible:ring-4 focus-visible:ring-secondary-fixed-dim" id="video-cover" type="button" aria-label="Reproducir el video">
+<img alt="" class="w-full h-full object-cover transition-[filter] duration-300 group-hover:brightness-110" id="video-cover-img">
+</button>
+</div>
+<div class="flex items-center gap-2 px-2 sm:px-1 pt-3 pb-1.5 sm:pb-0 text-xs font-semibold text-on-surface-variant">
+<span aria-hidden="true" class="material-symbols-outlined text-[18px] text-primary">smartphone</span>
+<span id="video-caption"></span>
+</div>
+<details class="transcript group mt-3 mx-1 sm:mx-0 rounded-2xl border border-surface-container bg-surface-container-low/60">
+<summary class="flex items-center gap-2 px-4 py-3 cursor-pointer select-none text-sm font-bold text-on-surface hover:text-primary transition-colors">
+<span aria-hidden="true" class="material-symbols-outlined text-[20px] text-primary">subtitles</span>
+<span class="flex-1">Transcripción del video</span>
+<span aria-hidden="true" class="material-symbols-outlined text-[20px] text-on-surface-variant transcript-chevron transition-transform">expand_more</span>
+</summary>
+<ol class="transcript-list px-2 sm:px-3 pb-3 space-y-1 hidden" data-section="0">
+<li class="transcript-line flex gap-3 rounded-xl p-2 sm:p-3 transition-colors" data-time="0">
+<button class="transcript-time shrink-0 h-7 px-2.5 rounded-full bg-surface-container text-primary text-xs font-bold tabular-nums hover:bg-primary-fixed transition-colors" type="button" aria-label="Ir al minuto 0:00">0:00</button>
+<p class="text-sm text-on-surface leading-relaxed">Entramos a WhatsApp Business. Dentro de Herramientas, en la sección Organizar tus chats, presionamos Mensaje de bienvenida y activamos la opción.</p>
+</li>
+<li class="transcript-line flex gap-3 rounded-xl p-2 sm:p-3 transition-colors" data-time="9">
+<button class="transcript-time shrink-0 h-7 px-2.5 rounded-full bg-surface-container text-primary text-xs font-bold tabular-nums hover:bg-primary-fixed transition-colors" type="button" aria-label="Ir al minuto 0:09">0:09</button>
+<p class="text-sm text-on-surface leading-relaxed">Presionamos donde dice Ingresá el mensaje de bienvenida.</p>
+</li>
+<li class="transcript-line flex gap-3 rounded-xl p-2 sm:p-3 transition-colors" data-time="12">
+<button class="transcript-time shrink-0 h-7 px-2.5 rounded-full bg-surface-container text-primary text-xs font-bold tabular-nums hover:bg-primary-fixed transition-colors" type="button" aria-label="Ir al minuto 0:12">0:12</button>
+<p class="text-sm text-on-surface leading-relaxed">Aquí presentá tu negocio: definí quién sos, qué hacés y preguntale al cliente qué necesita.</p>
+</li>
+<li class="transcript-line flex gap-3 rounded-xl p-2 sm:p-3 transition-colors" data-time="17">
+<button class="transcript-time shrink-0 h-7 px-2.5 rounded-full bg-surface-container text-primary text-xs font-bold tabular-nums hover:bg-primary-fixed transition-colors" type="button" aria-label="Ir al minuto 0:17">0:17</button>
+<p class="text-sm text-on-surface leading-relaxed">Luego ingresamos a Destinatarios y elegimos a qué personas queremos que les llegue el mensaje.</p>
+</li>
+</ol>
+<ol class="transcript-list px-2 sm:px-3 pb-3 space-y-1 hidden" data-section="2">
+<li class="transcript-line flex gap-3 rounded-xl p-2 sm:p-3 transition-colors" data-time="0">
+<button class="transcript-time shrink-0 h-7 px-2.5 rounded-full bg-surface-container text-primary text-xs font-bold tabular-nums hover:bg-primary-fixed transition-colors" type="button" aria-label="Ir al minuto 0:00">0:00</button>
+<p class="text-sm text-on-surface leading-relaxed">Entramos a WhatsApp Business. Primero abrí Herramientas y, en la sección Organizá tus chats, tocá Listas.</p>
+</li>
+<li class="transcript-line flex gap-3 rounded-xl p-2 sm:p-3 transition-colors" data-time="7">
+<button class="transcript-time shrink-0 h-7 px-2.5 rounded-full bg-surface-container text-primary text-xs font-bold tabular-nums hover:bg-primary-fixed transition-colors" type="button" aria-label="Ir al minuto 0:07">0:07</button>
+<p class="text-sm text-on-surface leading-relaxed">Luego presionamos Crear una lista personalizada. Aquí la aplicación ya te sugiere algunas ideas, pero si querés crear una nueva, podés hacerlo.</p>
+</li>
+<li class="transcript-line flex gap-3 rounded-xl p-2 sm:p-3 transition-colors" data-time="17">
+<button class="transcript-time shrink-0 h-7 px-2.5 rounded-full bg-surface-container text-primary text-xs font-bold tabular-nums hover:bg-primary-fixed transition-colors" type="button" aria-label="Ir al minuto 0:17">0:17</button>
+<p class="text-sm text-on-surface leading-relaxed">Presionamos Añadir personas o grupos y seleccionamos a quienes queramos.</p>
+</li>
+<li class="transcript-line flex gap-3 rounded-xl p-2 sm:p-3 transition-colors" data-time="22">
+<button class="transcript-time shrink-0 h-7 px-2.5 rounded-full bg-surface-container text-primary text-xs font-bold tabular-nums hover:bg-primary-fixed transition-colors" type="button" aria-label="Ir al minuto 0:22">0:22</button>
+<p class="text-sm text-on-surface leading-relaxed">Podés cambiar el color de identificación de la lista tocando el nombre de la lista y luego tocás el tilde para confirmar.</p>
+</li>
+<li class="transcript-line flex gap-3 rounded-xl p-2 sm:p-3 transition-colors" data-time="28">
+<button class="transcript-time shrink-0 h-7 px-2.5 rounded-full bg-surface-container text-primary text-xs font-bold tabular-nums hover:bg-primary-fixed transition-colors" type="button" aria-label="Ir al minuto 0:28">0:28</button>
+<p class="text-sm text-on-surface leading-relaxed">En esta vista podés ver qué personas o grupos forman parte de cada lista.</p>
+</li>
+<li class="transcript-line flex gap-3 rounded-xl p-2 sm:p-3 transition-colors" data-time="35">
+<button class="transcript-time shrink-0 h-7 px-2.5 rounded-full bg-surface-container text-primary text-xs font-bold tabular-nums hover:bg-primary-fixed transition-colors" type="button" aria-label="Ir al minuto 0:35">0:35</button>
+<p class="text-sm text-on-surface leading-relaxed">Además, se puede silenciar a todas las personas de la lista, editar la lista, el color, el nombre o añadir nuevas personas o grupos.</p>
+</li>
+</ol>
+</details>
+</div>
+<div class="bg-surface-container-lowest rounded-3xl p-6 sm:p-8 shadow-sm border border-surface-container hidden" id="video-soon">
 <div class="flex flex-col sm:flex-row items-center gap-6">
 <div class="w-32 h-32 rounded-2xl bg-gradient-to-br from-primary to-secondary-fixed-dim flex items-center justify-center shrink-0 shadow-md">
 <span aria-hidden="true" class="material-symbols-outlined text-white text-6xl">smartphone</span>
@@ -366,23 +438,34 @@
 </div>
 </div>
 
-<!-- Panel: Podcast (placeholder) -->
+<!-- Panel: Podcast (un episodio por submódulo) -->
 <div class="format-panel hidden" data-panel="podcast" role="tabpanel">
 <div class="bg-surface-container-lowest rounded-3xl p-6 sm:p-8 shadow-sm border border-surface-container">
+<audio id="module-audio" preload="metadata"></audio>
 <div class="flex flex-col sm:flex-row items-center gap-6">
 <div class="w-32 h-32 rounded-2xl bg-gradient-to-br from-primary to-secondary-fixed-dim flex items-center justify-center shrink-0 shadow-md">
 <span aria-hidden="true" class="material-symbols-outlined text-white text-6xl">podcasts</span>
 </div>
-<div class="flex-1 w-full text-center sm:text-left">
-<span class="inline-block px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed text-xs font-bold mb-2">Próximamente</span>
-<p class="font-headline-sm text-lg text-on-surface font-bold">Podcast · <span class="section-label">3.1 Mensaje de bienvenida</span></p>
+<div class="flex-1 w-full min-w-0 text-center sm:text-left">
+<span class="inline-block px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed text-xs font-bold mb-2">Podcast</span>
+<p class="font-headline-sm text-lg text-on-surface font-bold">Episodio · <span class="section-label">3.1 Mensaje de bienvenida</span></p>
 <p class="text-sm text-on-surface-variant mb-5">Escuchá la capacitación mientras hacés otras cosas.</p>
-<div class="flex items-center gap-4 opacity-50" aria-hidden="true">
-<span class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0"><span aria-hidden="true" class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span></span>
-<div class="flex-1 flex items-center justify-between h-10 min-w-0">
-<span class="w-1.5 rounded-full bg-primary/60 h-[30%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[60%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[45%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[80%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[55%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[35%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[70%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[90%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[50%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[25%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[65%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[40%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[75%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[55%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[30%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[60%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[85%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[45%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[35%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[70%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[50%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[25%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[60%]"></span><span class="w-1.5 rounded-full bg-primary/60 h-[40%]"></span>
+<div class="flex items-center gap-3 sm:gap-4">
+<button class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0 hover:opacity-90 transition-opacity" id="podcast-play" type="button" aria-label="Reproducir"><span aria-hidden="true" class="material-symbols-outlined" id="podcast-play-icon" style="font-variation-settings: 'FILL' 1;">play_arrow</span></button>
+<div class="relative flex-1 h-10 min-w-0 cursor-pointer" id="podcast-wave" role="slider" tabindex="0" aria-label="Posición del episodio" aria-valuemin="0" aria-valuemax="0" aria-valuenow="0">
+<div class="absolute inset-0 flex items-center gap-[3px]" aria-hidden="true"><span class="flex-1 rounded-full bg-primary/25 h-[75%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[65%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[70%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[75%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[80%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[30%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[35%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[45%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[30%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[50%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[80%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[85%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[55%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[80%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[45%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[30%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[20%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[65%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[35%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[75%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[85%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[85%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[40%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[60%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[35%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[20%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[40%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[70%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[65%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[70%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[95%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[55%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[40%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[35%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[45%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[20%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[70%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[75%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[80%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[60%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[85%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[30%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[30%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[40%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[50%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[40%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[80%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[90%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[60%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[60%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[55%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[30%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[20%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[65%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[50%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[70%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[80%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[95%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[35%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[55%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[40%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[30%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary/25 h-[25%]"></span><span class="flex-1 rounded-full bg-primary/25 h-[80%] hidden sm:block"></span></div>
+<div class="absolute inset-0 flex items-center gap-[3px]" id="podcast-wave-fill" aria-hidden="true" style="clip-path: inset(0 100% 0 0);"><span class="flex-1 rounded-full bg-primary h-[75%]"></span><span class="flex-1 rounded-full bg-primary h-[65%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[70%]"></span><span class="flex-1 rounded-full bg-primary h-[75%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[80%]"></span><span class="flex-1 rounded-full bg-primary h-[30%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[35%]"></span><span class="flex-1 rounded-full bg-primary h-[45%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[30%]"></span><span class="flex-1 rounded-full bg-primary h-[50%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[80%]"></span><span class="flex-1 rounded-full bg-primary h-[85%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[55%]"></span><span class="flex-1 rounded-full bg-primary h-[80%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[45%]"></span><span class="flex-1 rounded-full bg-primary h-[30%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[20%]"></span><span class="flex-1 rounded-full bg-primary h-[65%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[35%]"></span><span class="flex-1 rounded-full bg-primary h-[75%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[85%]"></span><span class="flex-1 rounded-full bg-primary h-[85%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[40%]"></span><span class="flex-1 rounded-full bg-primary h-[60%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[35%]"></span><span class="flex-1 rounded-full bg-primary h-[20%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[40%]"></span><span class="flex-1 rounded-full bg-primary h-[70%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[65%]"></span><span class="flex-1 rounded-full bg-primary h-[70%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[95%]"></span><span class="flex-1 rounded-full bg-primary h-[55%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[40%]"></span><span class="flex-1 rounded-full bg-primary h-[35%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[45%]"></span><span class="flex-1 rounded-full bg-primary h-[20%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[70%]"></span><span class="flex-1 rounded-full bg-primary h-[75%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[80%]"></span><span class="flex-1 rounded-full bg-primary h-[60%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[85%]"></span><span class="flex-1 rounded-full bg-primary h-[30%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[30%]"></span><span class="flex-1 rounded-full bg-primary h-[40%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[50%]"></span><span class="flex-1 rounded-full bg-primary h-[40%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[80%]"></span><span class="flex-1 rounded-full bg-primary h-[90%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[60%]"></span><span class="flex-1 rounded-full bg-primary h-[60%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[55%]"></span><span class="flex-1 rounded-full bg-primary h-[30%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[20%]"></span><span class="flex-1 rounded-full bg-primary h-[65%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[50%]"></span><span class="flex-1 rounded-full bg-primary h-[70%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[80%]"></span><span class="flex-1 rounded-full bg-primary h-[95%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[35%]"></span><span class="flex-1 rounded-full bg-primary h-[55%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[40%]"></span><span class="flex-1 rounded-full bg-primary h-[30%] hidden sm:block"></span><span class="flex-1 rounded-full bg-primary h-[25%]"></span><span class="flex-1 rounded-full bg-primary h-[80%] hidden sm:block"></span></div>
 </div>
-<span class="text-xs font-bold text-on-surface-variant shrink-0">--:--</span>
+<span class="text-xs font-bold text-on-surface-variant shrink-0 tabular-nums" id="podcast-time">0:00 / --:--</span>
+</div>
+<div class="mt-5 flex flex-col sm:flex-row sm:flex-wrap items-center gap-3 sm:gap-2">
+<div class="flex items-center gap-2">
+<button class="w-8 h-8 rounded-full bg-surface-container text-primary flex items-center justify-center hover:bg-primary-fixed transition-colors" id="podcast-back" type="button" aria-label="Retroceder 10 segundos"><span aria-hidden="true" class="material-symbols-outlined text-xl">replay_10</span></button>
+<button class="w-8 h-8 rounded-full bg-surface-container text-primary flex items-center justify-center hover:bg-primary-fixed transition-colors" id="podcast-forward" type="button" aria-label="Adelantar 10 segundos"><span aria-hidden="true" class="material-symbols-outlined text-xl">forward_10</span></button>
+</div>
+<span class="hidden sm:block w-px h-5 bg-surface-container-high mx-1" aria-hidden="true"></span>
+<span class="text-xs font-bold text-on-surface-variant sm:mr-1">Velocidad</span>
+<div class="flex flex-wrap justify-center gap-2"><button class="podcast-speed h-8 px-3 rounded-full text-xs font-bold tabular-nums transition-colors" data-rate="1" type="button" aria-pressed="false">1x</button><button class="podcast-speed h-8 px-3 rounded-full text-xs font-bold tabular-nums transition-colors" data-rate="1.25" type="button" aria-pressed="false">1.25x</button><button class="podcast-speed h-8 px-3 rounded-full text-xs font-bold tabular-nums transition-colors" data-rate="1.5" type="button" aria-pressed="false">1.5x</button><button class="podcast-speed h-8 px-3 rounded-full text-xs font-bold tabular-nums transition-colors" data-rate="1.75" type="button" aria-pressed="false">1.75x</button><button class="podcast-speed h-8 px-3 rounded-full text-xs font-bold tabular-nums transition-colors" data-rate="2" type="button" aria-pressed="false">2x</button></div>
 </div>
 </div>
 </div>
@@ -799,6 +882,7 @@ Continuar<span aria-hidden="true" class="material-symbols-outlined text-[20px]">
       sectionSlides[s].forEach((i, n) => slides[i].setAttribute('aria-label', 'Slide ' + (n + 1) + ' de ' + sectionSlides[s].length + ': ' + slides[i].dataset.label));
       buildRail();
       go(0);
+      loadMedia(s);
     }
 
     prevBtn.addEventListener('click', () => go(pos - 1));
@@ -973,6 +1057,144 @@ Continuar<span aria-hidden="true" class="material-symbols-outlined text-[20px]">
       if (progress.passed.includes(s)) showPassed();
       updateAnswered();
     });
+
+    // Video y podcast de cada submódulo (3.2 y 3.4 todavía no tienen video)
+    const sectionVideos = {
+      0: { src: 'video/modulo-3-1.mp4', cover: 'img/modulo-3/portada-video-3-1.jpg', caption: 'Grabación de pantalla · Activamos el mensaje de bienvenida de punta a punta' },
+      2: { src: 'video/modulo-3-3.mp4', cover: 'img/modulo-3/portada-video-3-3.jpg', caption: 'Grabación de pantalla · Creamos una lista y le sumamos contactos' },
+    };
+    const sectionAudios = ['audio/modulo-3-1.mp3', 'audio/modulo-3-2.mp3', 'audio/modulo-3-3.mp3', 'audio/modulo-3-4.mp3'];
+    const video = document.getElementById('module-video');
+    const videoCover = document.getElementById('video-cover');
+    const videoStage = document.getElementById('video-stage');
+    const transcriptLists = Array.from(document.querySelectorAll('.transcript-list'));
+    let transcriptLines = [];
+
+    function loadMedia(s) {
+      video.pause();
+      audio.pause();
+      const v = sectionVideos[s];
+      document.getElementById('video-card').classList.toggle('hidden', !v);
+      document.getElementById('video-soon').classList.toggle('hidden', !!v);
+      transcriptLists.forEach((ol) => ol.classList.toggle('hidden', Number(ol.dataset.section) !== s));
+      const list = transcriptLists.find((ol) => Number(ol.dataset.section) === s);
+      transcriptLines = list ? Array.from(list.querySelectorAll('.transcript-line')) : [];
+      if (v) {
+        if (video.getAttribute('src') !== v.src) video.src = v.src;
+        document.getElementById('video-cover-img').src = v.cover;
+        document.getElementById('video-caption').textContent = v.caption;
+        videoCover.setAttribute('aria-label', 'Reproducir el video: ' + sectionName(s));
+      }
+      videoCover.classList.remove('hidden');
+      video.hidden = true;
+      videoStage.classList.remove('is-playing');
+      if (audio.getAttribute('src') !== sectionAudios[s]) audio.src = sectionAudios[s];
+      updateAudio();
+    }
+
+    // Terminar el video o el podcast cuenta como haber visto el submódulo: se abre su actividad
+    function finishSection() {
+      sectionSlides[section].forEach((i) => { if (!progress.seen.includes(i)) progress.seen.push(i); });
+      saveProgress();
+      go(pos);
+      openQuiz();
+    }
+
+    // Video: la portada se reemplaza por el reproductor
+    videoCover.addEventListener('click', () => {
+      videoCover.classList.add('hidden');
+      video.hidden = false;
+      videoStage.classList.add('is-playing');
+      video.play().catch(() => {});
+      video.focus();
+    });
+    video.addEventListener('ended', finishSection);
+
+    // Transcripción: cada minuto lleva el video a ese punto y se resalta el párrafo que se está escuchando
+    transcriptLists.forEach((ol) => ol.querySelectorAll('.transcript-line').forEach((line) => {
+      line.querySelector('.transcript-time').addEventListener('click', () => {
+        if (!videoCover.classList.contains('hidden')) videoCover.click();
+        video.currentTime = Number(line.dataset.time);
+        video.play().catch(() => {});
+        videoStage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+    }));
+    video.addEventListener('timeupdate', () => {
+      const t = video.currentTime;
+      transcriptLines.forEach((line, i) => {
+        const next = transcriptLines[i + 1];
+        line.classList.toggle('is-current', !video.paused && t >= Number(line.dataset.time) && (!next || t < Number(next.dataset.time)));
+      });
+    });
+    video.addEventListener('pause', () => transcriptLines.forEach((line) => line.classList.remove('is-current')));
+
+    // Podcast: reproductor propio con barras de progreso, saltos de 10 s y velocidad
+    const audio = document.getElementById('module-audio');
+    const playBtn = document.getElementById('podcast-play');
+    const playIcon = document.getElementById('podcast-play-icon');
+    const wave = document.getElementById('podcast-wave');
+    const waveFill = document.getElementById('podcast-wave-fill');
+    const timeLabel = document.getElementById('podcast-time');
+    const speedBtns = Array.from(document.querySelectorAll('.podcast-speed'));
+    const fmt = (s) => { s = Math.floor(s || 0); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); };
+    function updateAudio() {
+      const d = audio.duration || 0;
+      const ratio = d ? audio.currentTime / d : 0;
+      waveFill.style.clipPath = 'inset(0 ' + (100 - ratio * 100) + '% 0 0)';
+      timeLabel.textContent = fmt(audio.currentTime) + ' / ' + (d ? fmt(d) : '--:--');
+      wave.setAttribute('aria-valuemax', Math.floor(d));
+      wave.setAttribute('aria-valuenow', Math.floor(audio.currentTime));
+      wave.setAttribute('aria-valuetext', fmt(audio.currentTime) + ' de ' + fmt(d));
+    }
+    function seek(t) {
+      if (audio.duration) audio.currentTime = Math.max(0, Math.min(audio.duration, t));
+      updateAudio();
+    }
+    function setPlaying(playing) {
+      playIcon.textContent = playing ? 'pause' : 'play_arrow';
+      playBtn.setAttribute('aria-label', playing ? 'Pausar' : 'Reproducir');
+    }
+    function setRate(rate) {
+      audio.playbackRate = rate;
+      speedBtns.forEach((b) => {
+        const active = Number(b.dataset.rate) === rate;
+        b.setAttribute('aria-pressed', active);
+        b.className = 'podcast-speed h-8 px-3 rounded-full text-xs font-bold tabular-nums transition-colors ' +
+          (active ? 'bg-primary text-on-primary' : 'bg-surface-container text-primary hover:bg-primary-fixed');
+      });
+    }
+    playBtn.addEventListener('click', () => (audio.paused ? audio.play().catch(() => {}) : audio.pause()));
+    function tick() {
+      updateAudio();
+      if (!audio.paused) requestAnimationFrame(tick);
+    }
+    audio.addEventListener('play', () => { setPlaying(true); requestAnimationFrame(tick); });
+    audio.addEventListener('pause', () => setPlaying(false));
+    audio.addEventListener('timeupdate', updateAudio);
+    audio.addEventListener('loadedmetadata', updateAudio);
+    audio.addEventListener('ended', finishSection);
+    document.getElementById('podcast-back').addEventListener('click', () => seek(audio.currentTime - 10));
+    document.getElementById('podcast-forward').addEventListener('click', () => seek(audio.currentTime + 10));
+    wave.addEventListener('click', (e) => {
+      const r = wave.getBoundingClientRect();
+      seek((e.clientX - r.left) / r.width * audio.duration);
+    });
+    wave.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+        e.preventDefault();
+        seek(audio.currentTime + (e.key === 'ArrowLeft' ? -5 : 5));
+      }
+    });
+    // El navegador conserva el tono de voz al cambiar la velocidad; se recuerda la última elegida
+    audio.preservesPitch = true;
+    speedBtns.forEach((b) => b.addEventListener('click', () => {
+      setRate(Number(b.dataset.rate));
+      try { localStorage.setItem('wba-podcast-rate', b.dataset.rate); } catch (e) {}
+    }));
+    let savedRate = 1;
+    try { savedRate = Number(localStorage.getItem('wba-podcast-rate')) || 1; } catch (e) {}
+    setRate(speedBtns.some((b) => Number(b.dataset.rate) === savedRate) ? savedRate : 1);
+    audio.addEventListener('loadedmetadata', () => { audio.playbackRate = Number(speedBtns.find((b) => b.getAttribute('aria-pressed') === 'true').dataset.rate); });
 
     // Arranca en el submódulo del enlace (#3.2) o en el primero sin aprobar
     saveProgress();
